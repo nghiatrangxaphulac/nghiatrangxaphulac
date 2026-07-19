@@ -400,12 +400,14 @@ section h2{
     }
 
     .dropdown-content{
-        position:absolute;
-        top:100%;
+        position:fixed;
+        top: 55px;
         left:50%;
         transform:translateX(-50%);
         min-width:220px;
         display:none;
+        z-index:1001;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
         flex-direction:column;
     }
 
