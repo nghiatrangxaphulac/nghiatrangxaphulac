@@ -39,13 +39,29 @@ nav{
     text-align: center;
     z-index: 1000;
 }
-
+nav li{
+    transition: .25s;
+}
+nav li:hover{
+    transform: scale(1.08);
+    font-weight: bold;
+}
 nav a{
     color: white;
     text-decoration: none;
-    margin: 0 20px;
+    display: block;
+    padding: 6px 0;
 }
-
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+nav li{
+    position: relative;
+}
 .dropdown {
     position: relative;
     display: inline-block;
@@ -75,6 +91,7 @@ nav a{
 .dropdown-content a:hover{
     background: #f5f5f5;
 }
+
 
 .dropdown:hover .dropdown-content {
     display: block;
@@ -474,12 +491,19 @@ section h2{
 <body>
 
 <nav>
-    <a href="#hero">Trang chủ</a>
-    <a href="#gioithieu">Giới thiệu</a>
-    <a href="#hoatdongxa">Các hoạt động của xã</a>
-    <a href="#hoatdongsvtn">Các hoạt động của đội SVTN THVKHSS</a>
-    <a href="#danhsach">Danh sách anh hùng liệt sĩ</a>
-    <a href="#lienhe">Liên hệ</a>
+    <ul>
+        <li><a href="#hero">Trang chủ</a></li>
+        <li><a href="#gioithieu">Giới thiệu</a></li>
+        <li><a href="#danhsach">Danh sách anh hùng liệt sĩ</a></li>
+        <li class="dropdown">
+            <a >Các hoạt động ▼</a>
+            <ul class="dropdown-content">
+                <li><a href="#hoatdongxa">Hoạt động của xã</a></li>
+                <li><a href="#hoatdongsvtn">Hoạt động của đội SVTN</a></li>
+            </ul>
+        </li>
+        <li><a href="#lienhe">Liên hệ</a></li>
+    </ul>
 </nav>
 
 <section class="hero" id="hero">
@@ -592,6 +616,11 @@ section h2{
 </button>
 
 <script>
+    /*DROPDOWN TRÊN ĐIỆN THOẠI */
+    const dropdown = document.querySelector(".dropdown");
+    dropdown.addEventListener("click", () => {
+    dropdown.classList.toggle("open");
+});
 /* HIỆN KHI SCROLL */
 const hiddenElements = document.querySelectorAll(".hidden");
 
