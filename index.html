@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="vi">
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,12 +30,62 @@
         section:nth-of-type(even) {
             background: #eef6ff;
         }
+        header{
+    position: relative;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    height:30vh;
+}
 
+.top-header{
+    position: relative;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:url("head.jpg") center/cover no-repeat;
+}
+
+.banner{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+    padding:0 20px;
+}
+.banner{
+    z-index:2;
+}
+.top-header::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.35);
+}
+.banner h1{
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(40px, 5vw, 72px);
+    font-weight: 800;
+
+    color: white;
+    text-align: center;
+    line-height: 1.2;
+    letter-spacing: 3px;
+text-transform: uppercase;
+text-shadow: 
+        2px 2px 10px rgba(0, 0, 0, 0.8),
+        0 0 25px rgba(255, 255, 255, 0.3);
+
+    animation: run 5s linear infinite;
+}
         /* NAVBAR */
 
         nav {
-            position: fixed;
-            top: 0;
             width: 100%;
             background: #222;
             padding: 20px;
@@ -72,8 +124,59 @@
         nav li {
             position: relative;
         }
+.top-header{
+    position: relative;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:url("head.jpg") center/cover no-repeat;
+    overflow: hidden;   /* thêm dòng này */
+}
 
-        .dropdown {
+.top-header::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-50%;
+    width:18%;
+    height:150%;
+    background:linear-gradient(
+        90deg,
+        rgba(255,255,255,0),
+        rgba(255,255,255,.18),
+        rgba(255,255,255,.65),
+        rgba(255,255,255,.18),
+        rgba(255,255,255,0)
+    );
+    animation:shine 3s linear infinite;
+    z-index:1;
+}
+@keyframes shine{
+    from{
+        transform: translateX(-120%);
+    }
+    to{
+        transform: translateX(700%);
+    }
+}
+@keyframes run{
+
+    0%,100%{
+        color:#fff;
+        text-shadow:
+            0 0 10px #fff,
+            0 0 20px rgba(255,255,255,.4);
+    }
+
+    50%{
+        color: #ffda75;
+        text-shadow:
+            0 0 12px #ffd54f,
+            0 0 30px #ffca28;
+    }
+
+} .dropdown {
             position: relative;
             display: inline-block;
         }
@@ -433,6 +536,19 @@
             cursor: pointer;
 
         }
+        .map-container {
+            width: 100%;
+            height: 450px;
+            margin-top: 30px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
 
         @media (max-width: 768px) {
 
@@ -617,11 +733,21 @@
                 right: 15px;
                 bottom: 15px;
             }
+            .map-container {
+                height: 300px;
+            }
         }
     </style>
 </head>
-
 <body>
+    <header>
+<div class="top-header">
+        <div class="banner">
+            <h1>NGHĨA TRANG LIỆT SĨ XÃ PHÚ LẠC</h1>
+            </p>
+        </div>
+
+    </div>
     <nav>
         <button class="menu-btn">☰</button>
         <ul class="menu">
@@ -638,7 +764,7 @@
             <li><a href="#lienhe">Liên hệ</a></li>
         </ul>
     </nav>
-
+</header>
     <section class="hero" id="hero">
         <div class="slider">
             <div class="mainimage">
@@ -823,10 +949,11 @@
                 <thead>
                     <tr>
                         <th>Họ và tên</th>
-                        <th>Quê quán</th>
                         <th>Năm sinh</th>
-                        <th>Năm mất</th>
-                        <th>Vị trí mộ</th>
+                        <th>Năm nhập ngũ</th>
+                        <th>Cấp bậc</th>
+                        <th>Đơn vị</th>
+                        <th>Năm hy sinh</th>
                     </tr>
                 </thead>
                 <tbody id="bangbody">
@@ -840,6 +967,12 @@
         <h2>Liên hệ</h2>
         <p>Điện thoại: 2342343243324324</p>
         <p>Email: ưefewfewfewf</p>
+        <div class="map-container">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d237316.27766428364!2d105.38188934326172!3d21.66125718559081!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134db5c538fa011%3A0xa27ad23176d8ee51!2zTmdoxKlhIHRyYW5nIGxp4buHdCBzxKkgeMOjIFBo4bulYyBMaW5o!5e0!3m2!1svi!2s!4v1784710362665!5m2!1svi!2s"></iframe>"
+            loading="lazy" allowfullscreen>
+            </iframe>
+        </div>
     </section>
 
     <button id="topBtn" class="topBtn">
@@ -960,20 +1093,20 @@
                 closeTable();
             }
         });
-        const thongtin1 = [{ name: "Nguyễn Văn An", hometown: "Hà Nội", birth: 1946, death: 1968, grave: "Hàng 1 - Lô 1" }];
-        const thongtin2 = [{ name: "Trần Văn Bình", hometown: "Nam Định", birth: 1947, death: 1969, grave: "Hàng 1 - Lô 2" }];
-        const thongtin3 = [{ name: "Lê Văn Cường", hometown: "Thanh Hóa", birth: 1948, death: 1970, grave: "Hàng 1 - Lô 3" }];
-        const thongtin4 = [{ name: "Phạm Văn Dũng", hometown: "Nghệ An", birth: 1945, death: 1967, grave: "Hàng 1 - Lô 4" }];
-        const thongtin5 = [{ name: "Hoàng Văn Đức", hometown: "Hà Tĩnh", birth: 1949, death: 1971, grave: "Hàng 1 - Lô 5" }];
-        const thongtin6 = [{ name: "Vũ Văn Giang", hometown: "Quảng Bình", birth: 1946, death: 1969, grave: "Hàng 1 - Lô 6" }];
-        const thongtin7 = [{ name: "Đặng Văn Hải", hometown: "Quảng Trị", birth: 1947, death: 1972, grave: "Hàng 1 - Lô 7" }];
-        const thongtin8 = [{ name: "Bùi Văn Hùng", hometown: "Huế", birth: 1948, death: 1970, grave: "Hàng 1 - Lô 8" }];
-        const thongtin9 = [{ name: "Đỗ Văn Khánh", hometown: "Đà Nẵng", birth: 1945, death: 1968, grave: "Hàng 1 - Lô 9" }];
-        const thongtin10 = [{ name: "Ngô Văn Long", hometown: "Quảng Nam", birth: 1949, death: 1971, grave: "Hàng 1 - Lô 10" }];
-        const thongtin11 = [{ name: "Mai Văn Minh", hometown: "Quảng Ngãi", birth: 1946, death: 1969, grave: "Hàng 2 - Lô 1" }];
-        const thongtin12 = [{ name: "Phan Văn Nam", hometown: "Bình Định", birth: 1947, death: 1970, grave: "Hàng 2 - Lô 2" }];
-        const thongtin13 = [{ name: "Lý Văn Phúc", hometown: "Phú Yên", birth: 1948, death: 1972, grave: "Hàng 2 - Lô 3" }];
-        const thongtin14 = [{ name: "Chu Văn Quang", hometown: "Khánh Hòa", birth: 1945, death: 1968, grave: "Hàng 2 - Lô 4" }];
+const thongtin1 = [{ fullName: "Trần Đăng Sơ", yearOfBirth: "1941", enlistmentDate: "03 - 1968", rank: "B1 - Cs", unit: "C3 - D7 - E866", dateOfDeath: "21 - 10 - 1968", grave: "" }];
+const thongtin2 = [{ fullName: "Nguyễn Minh Khuê", yearOfBirth: "", enlistmentDate: "04 - 1981", rank: "", unit: "", dateOfDeath: "12 - 10 - 1985 tại Mặt trận Hà Giang", grave: "" }];
+const thongtin3 = [{ fullName: "Đào Xuân Liệu", yearOfBirth: "1960", enlistmentDate: "03 - 1979", rank: "", unit: "", dateOfDeath: "10 - 1981 tại Mặt trận Cao Bằng", grave: "" }];
+const thongtin4 = [{ fullName: "Đặng Văn Mai", yearOfBirth: "1960", enlistmentDate: "09 - 1982", rank: "", unit: "", dateOfDeath: "14 - 06 - 1985 tại Mặt trận Hà Giang", grave: "" }];
+const thongtin5 = [{ fullName: "Nguyễn Văn Long", yearOfBirth: "", enlistmentDate: "", rank: "", unit: "", dateOfDeath: "1948", grave: "" }];
+const thongtin6 = [{ fullName: "Nguyễn Văn Chương", yearOfBirth: "", enlistmentDate: "", rank: "", unit: "", dateOfDeath: "1945", grave: "" }];
+const thongtin7 = [{ fullName: "Trần Văn Thế", yearOfBirth: "06 - 06 - 1960", enlistmentDate: "13 - 07 - 1977", rank: "", unit: "", dateOfDeath: "20 - 04 - 1978 tại Mặt trận Phía Tây", grave: "hàng 1 bên trái" }];
+const thongtin8 = [{ fullName: "Chu Văn Vị", yearOfBirth: "08 - 06 - 1947", enlistmentDate: "1968", rank: "", unit: "", dateOfDeath: "29 - 12 - 1971 tại Mặt trận Quảng Bình", grave: "hàng 1 bên trái" }];
+const thongtin9 = [{ fullName: "Triệu Văn Thuận", yearOfBirth: "01 - 10 - 1950", enlistmentDate: "02 - 03 - 1968", rank: "", unit: "", dateOfDeath: "23 - 11 - 1970 tại Mặt trận Phía Tây", grave: "hàng 1 bên trái" }];
+const thongtin10 = [{ fullName: "Đỗ Đức Thanh", yearOfBirth: "1956", enlistmentDate: "10 - 1974", rank: "", unit: "", dateOfDeath: "20 - 02 - 1979 tại Mặt trận Cao Bằng", grave: "hàng 1 bên trái" }];
+const thongtin11 = [{ fullName: "Phương Văn Tiến", yearOfBirth: "28 - 12 - 1949", enlistmentDate: "04 - 1970", rank: "", unit: "", dateOfDeath: "17 - 04 - 1975 tại Mặt trận Phía Nam", grave: "hàng 1 bên trái" }];
+const thongtin12 = [{ fullName: "Đỗ Xuân Hữu", yearOfBirth: "1944", enlistmentDate: "02 - 1962", rank: "", unit: "", dateOfDeath: "01 - 1968 tại Mặt trận Lào", grave: "hàng 1 bên trái" }];
+const thongtin13 = [{ fullName: "Ngô Anh Đạo", yearOfBirth: "06 - 1958", enlistmentDate: "08 - 1978", rank: "", unit: "", dateOfDeath: "24 - 08 - 1979 tại Mặt trận Lào", grave: "hàng 1 bên trái" }];
+const thongtin14 = [{ fullName: "Trần Đình Trọng", yearOfBirth: "1950", enlistmentDate: "08 - 1969", rank: "", unit: "", dateOfDeath: "23 - 01 - 1971 tại Mặt trận Lào", grave: "Hàng 2 bên trái" }];
         const thongtin15 = [{ name: "Dương Văn Sơn", hometown: "Ninh Thuận", birth: 1949, death: 1971, grave: "Hàng 2 - Lô 5" }];
         const thongtin16 = [{ name: "Lâm Văn Thành", hometown: "Bình Thuận", birth: 1946, death: 1969, grave: "Hàng 2 - Lô 6" }];
         const thongtin17 = [{ name: "Tạ Văn Tuấn", hometown: "Đồng Nai", birth: 1947, death: 1970, grave: "Hàng 2 - Lô 7" }];
@@ -1024,11 +1157,12 @@
                 ds.forEach(person => {
                     result += `
                 <tr>
-                    <td>${person.name}</td>
-                    <td>${person.hometown}</td>
-                    <td>${person.birth}</td>
-                    <td>${person.death}</td>
-                    <td>${person.grave}</td>
+                    <td>${person.fullName}</td>
+                    <td>${person.yearOfBirth}</td>
+                    <td>${person.enlistmentDate}</td>
+                    <td>${person.rank}</td>
+                    <td>${person.unit}</td>
+                    <td>${person.dateOfDeath}</td>
                 </tr>
             `;
 
