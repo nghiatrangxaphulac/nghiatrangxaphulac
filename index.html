@@ -1,889 +1,1028 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html{
-    scroll-behavior: smooth;
-}
-
-body{
-    font-family: Arial, sans-serif;
-}
-section{
-    padding:100px 10%;
-    border-top:4px solid #d9e9ff;
-}
-
-section:nth-of-type(even){
-    background:#eef6ff;
-}
-
-/* NAVBAR */
-
-nav{
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: #222;
-    padding: 20px;
-    text-align: center;
-    z-index: 1000;
-}
-.menu-btn{
-    display:none;
-}
-nav li{
-    transition: .1s;
-}
-nav li:hover{
-    transform: scale(1.08);
-    font-weight: bold;
-}
-nav a{
-    color: white;
-    text-decoration: none;
-    display: block;
-    padding: 6px 0;
-}
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-}
-nav li{
-    position: relative;
-}
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-.dropdown a{
-    cursor: pointer;
-}
-.dropdown-content{
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    min-width: 240px;
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 20px 40px rgba(0,0,0,.12);
-    border: 1px solid #eee;
-    overflow: hidden;
-}
-
-.dropdown-content a{
-    color: #333;
-    padding: 14px 20px;
-    display: block;
-    transition: 0.25s;
-}
-
-.dropdown-content a:hover{
-    background: #f5f5f5;
-}
-
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-/* HERO */
-
-.hero{
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-shadow: 2px 2px 10px black;
-    overflow: hidden;
-}
-
-.hero h1{
-    font-size: clamp(2rem, 5vw, 5rem);
-    text-align: center;
-}
-
-.hero p{
-    margin-top: 20px;
-    font-size: 22px;
-}
-
-/* SECTION */
-
-section{
-    padding: 100px 10%;
-    scroll-margin-top: 100px;
-}
-
-section h2{
-    margin-bottom: 20px;
-}
-
-/* GALLERY */
-
-.gallery{
-    display: flex;
-    gap: 39px; 
-    flex-wrap: wrap;
-}
-
-.thumbs{
-    display: flex;
-    gap: 10px;
-    width: max-content;
-}
-
-.subimage{
-    overflow-y: hidden;
-    overflow-x: auto;
-    margin-top: 15px;
-    scrollbar-width: none; 
-}
-.slider {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-.mainimage img{
-    width: auto;
-    height: 60vh;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-.thumb{
-    width: 120px;
-    height: 75px;
-    object-fit: cover;
-    cursor: pointer;
-    border: 3px solid transparent;
-    border-radius: 8px;
-    opacity: .6;
-    transform: scale(.95);
-    transition: .3s;
-}
-
-.thumb:hover{
-    opacity: 1;
-}
-
-.thumb.active{
-    border: 3px solid #2196F3;
-    opacity: 1;
-    transform: scale(1);
-}
-
-@keyframes mainimganimation {
-    0% { transform: scale(0.5); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
-}
-
-.changeimg{
-    animation: mainimganimation 0.5s ease-in-out;
-}
-
-/* GIỚI THIỆU */
-.about-item{
-    display: flex;
-    align-items: center;
-    gap: 4vw;
-    margin-bottom: 40px;
-}
-
-.about-img{
-    flex: 3;
-}
-
-.about-img img{
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-}
-
-.about-text{
-    flex: 7;
-}
-
-.about-text p{
-    max-width: 65ch;          
-    font-size: clamp(1rem, 1.1vw, 1.15rem);
-    line-height: 1.9;
-    color: #3d3d3d;
-    text-align: justify;
-    letter-spacing: 0.3px;
-    text-indent: 2em;
-    font-weight: 400;
-}
-
-/* SCROLL ANIMATION */
-.hidden{
-    opacity: 0;
-    transform: translateY(50px);
-    transition: 1s;
-}
-
-.show{
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* BUTTON */
-.btn{
-    padding: 12px 34px;
-    border: none;
-    border-radius: 30px;
-
-    background: linear-gradient(135deg,#1976d2,#42a5f5);
-    color: white;
-
-    font-size: 16px;
-    font-weight: 600;
-
-    cursor: pointer;
-
-    transition: .25s;
-    box-shadow: 0 8px 20px rgba(25,118,210,.35);
-}
-
-.btn:hover{
-    transform: translateY(-2px);
-    box-shadow: 0 12px 24px rgba(25,118,210,.45);
-}
-
-.btn:active{
-    transform: scale(.96);
-}
-/* BACK TO TOP */
-.topBtn{
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    width: 50px;
-    height: 50px;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none;
-}
-/* BẢNG DỮ LIỆU */
-.table-wrapper{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0,0,0,.45);
-    overflow: auto;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: .3s;
-    z-index: 999;
-    flex-direction: column;
-}
-.bang th{
-    background: #1976d2;
-    color: white;
-    padding: 18px;
-    text-align: left;
-    font-weight: 600;
-}
-.bang td{
-    padding: 16px 18px;
-    border: 1px solid #d8e6f5;
-    background: #eef6ff;
-    line-height: 1.6;
-}
-
-.bang tbody tr:nth-child(even){
-    background: #e4f0ff;
-}
-
-.bang tbody tr:hover{
-    background: #d5e9ff;
-    transition: .25s;
-}
-
-.table-wrapper.show .bang{
-    transform: scale(1);
-    opacity: 1;
-}
-.table-wrapper.show{
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-}
-.bang{
-    width: 90%;
-    max-width: 1400px;
-    min-width: 600px;
-    max-height: 90vh;
-    border-collapse: collapse;
-    margin: auto;
-    font-size: 18px;
-    opacity: 0;
-    transform: scale(.8);
-    transition: .3s;
-    box-shadow: 0 8px 20px rgba(0,0,0,.08);
-    border-radius: 10px;
-    overflow: hidden;
-    background: white;
-}
-.table-box{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 18px;
-}
-.sodo{
-    display: block;
-    width: 100%;
-    max-width: 900px;  
-    height: auto;
-    margin: 30px auto;
-    border-radius: 10px;
-}
-.sodo-container{
-    position: relative;
-    width: min(95%,1000px);
-    margin: 30px auto;
-}
-
-.map-overlay{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.map-overlay path {
-    fill: transparent;
-    cursor: pointer;
-
-}
-.caption{
-    margin-top: 15px;
-    text-align: center;
-    font-size: 15px;
-    color: #666;
-    font-style: italic;
-}
-@media (max-width: 768px){
-
-nav{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 20px;
-}
-.menu {
-    display:none;
-    flex-direction:column;
-    align-items:flex-start;
-    gap:0;
-    width:100%;
-    background:#222;
-    position:absolute;
-    top:100%;
-    left:0;
-}
-.menu-btn{
-    display:block;
-    background:none;
-    border:none;
-    color:white;
-    font-size:30px;
-    cursor:pointer;
-    margin-left:auto;
-}
-.showmenu{
-    display:flex;
-}
-
-nav li{
-    width:100%;
-}
-
-nav li a{
-    display:block;
-    width:100%;
-    padding:15px 20px;
-}
-
-.dropdown-content{
-    position:static;
-    display:none;
-    transform:none;
-    width:100%;
-    background:#333;
-    border:none;
-    box-shadow:none;
-}
-
-.dropdown.open .dropdown-content{
-    display:block;
-}
-.dropdown-content a{
-    color:white;
-    padding-left:40px;
-}
-    .hero{
-        padding: 90px 15px 20px;
-        justify-content: center;
-        overflow: hidden;
-    }
-
-    .mainimage{
-        width: 100%;
-        overflow: hidden;
-    }
-
-    .mainimage img{
-        width: auto;
-        height: 35vh;
-        object-fit: cover;
-        border-radius: 10px;
-    }
-
-    .subimage{
-        width: 100%;
-        overflow-x: auto;
-        overflow-y: hidden;
-        margin-top: 12px;
-        scrollbar-width: thin;
-    }
-
-    .thumbs{
-        display: flex;
-        width: max-content;
-        gap: 10px;
-    }
-
-    .thumb{
-        flex-shrink: 0;
-        width: 90px;
-        height: 60px;
-    }
-
-
-    section{
-        padding: 60px 18px;
-    }
-    .about-item{
-        flex-direction: column !important;
-        gap: 20px;
-    }
-
-    .about-img,
-    .about-text{
-        width: 100%;
-    }
-
-    .about-img img{
-        max-height: 260px;
-        object-fit: cover;
-    }
-
-    .about-text p{
-        font-size: 15px;
-        line-height: 1.7;
-        text-indent: 1.5em;
-    }
-
-
-
-    .popup{
-        width: 92vw;
-        padding: 20px;
-        max-height: 85vh;
-        overflow-y: auto;
-    }
-
-
-
-    .table-note{
-        display: block;
-        font-size: 13px;
-        color: #666;
-        margin-bottom: 10px;
-    }
-
-    .table-wrapper{
-        overflow-x: auto;
-    }
-
-    .bang{
-        min-width: 520px;
-        font-size: 13px;
-    }
-
-    .bang th,
-    .bang td{
-        padding: 10px 8px;
-        white-space: nowrap;
-    }
-
-
-    .topBtn{
-        width: 45px;
-        height: 45px;
-        right: 15px;
-        bottom: 15px;
-    }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        section {
+            padding: 100px 10%;
+            border-top: 4px solid #d9e9ff;
+        }
+
+        section:nth-of-type(even) {
+            background: #eef6ff;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #222;
+            padding: 20px;
+            text-align: center;
+            z-index: 1000;
+        }
+
+        .menu-btn {
+            display: none;
+        }
+
+        nav li {
+            transition: .1s;
+        }
+
+        nav li:hover {
+            transform: scale(1.08);
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 6px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        nav li {
+            position: relative;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown a {
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            min-width: 240px;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, .12);
+            border: 1px solid #eee;
+            overflow: hidden;
+        }
+
+        .dropdown-content a {
+            color: #333;
+            padding: 14px 20px;
+            display: block;
+            transition: 0.25s;
+        }
+
+        .dropdown-content a:hover {
+            background: #f5f5f5;
+        }
+
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* HERO */
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-shadow: 2px 2px 10px black;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 5rem);
+            text-align: center;
+        }
+
+        .hero p {
+            margin-top: 20px;
+            font-size: 22px;
+        }
+
+        /* SECTION */
+
+        section {
+            padding: 100px 10%;
+            scroll-margin-top: 100px;
+        }
+
+        section h2 {
+            margin-bottom: 20px;
+        }
+
+        /* GALLERY */
+
+        .gallery {
+            display: flex;
+            gap: 39px;
+            flex-wrap: wrap;
+        }
+
+        .thumbs {
+            display: flex;
+            gap: 10px;
+            width: max-content;
+        }
+
+        .subimage {
+            overflow-y: hidden;
+            overflow-x: auto;
+            margin-top: 15px;
+            scrollbar-width: none;
+        }
+
+        .slider {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .mainimage img {
+            width: auto;
+            height: 60vh;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .thumb {
+            width: 120px;
+            height: 75px;
+            object-fit: cover;
+            cursor: pointer;
+            border: 3px solid transparent;
+            border-radius: 8px;
+            opacity: .6;
+            transform: scale(.95);
+            transition: .3s;
+        }
+
+        .thumb:hover {
+            opacity: 1;
+        }
+
+        .thumb.active {
+            border: 3px solid #2196F3;
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        @keyframes mainimganimation {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .changeimg {
+            animation: mainimganimation 0.5s ease-in-out;
+        }
+
+        /* GIỚI THIỆU */
+        .about-item {
+            display: flex;
+            align-items: center;
+            gap: 4vw;
+            margin-bottom: 40px;
+        }
+
+        .about-img {
+            flex: 3;
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+
+        .about-text {
+            flex: 7;
+        }
+
+        .about-text p {
+            max-width: 65ch;
+            font-size: clamp(1rem, 1.1vw, 1.15rem);
+            line-height: 1.9;
+            color: #3d3d3d;
+            text-align: justify;
+            letter-spacing: 0.3px;
+            text-indent: 2em;
+            font-weight: 400;
+        }
+
+        /* SCROLL ANIMATION */
+        .hidden {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: 1s;
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* BUTTON */
+        .btn {
+            padding: 12px 34px;
+            border: none;
+            border-radius: 30px;
+
+            background: linear-gradient(135deg, #1976d2, #42a5f5);
+            color: white;
+
+            font-size: 16px;
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: .25s;
+            box-shadow: 0 8px 20px rgba(25, 118, 210, .35);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(25, 118, 210, .45);
+        }
+
+        .btn:active {
+            transform: scale(.96);
+        }
+
+        /* BACK TO TOP */
+        .topBtn {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 50px;
+            height: 50px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+        }
+
+        /* BẢNG DỮ LIỆU */
+        .table-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, .45);
+            overflow: auto;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: .3s;
+            z-index: 999;
+            flex-direction: column;
+        }
+
+        .bang th {
+            background: #1976d2;
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .bang td {
+            padding: 16px 18px;
+            border: 1px solid #d8e6f5;
+            background: #eef6ff;
+            line-height: 1.6;
+        }
+
+        .bang tbody tr:nth-child(even) {
+            background: #e4f0ff;
+        }
+
+        .bang tbody tr:hover {
+            background: #d5e9ff;
+            transition: .25s;
+        }
+
+        .table-wrapper.show .bang {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .table-wrapper.show {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .bang {
+            /* Desktop: bảng rộng bằng khung popup */
+            width: 100%;
+            max-width: 1400px;
+
+            /* Mobile: bảng không bị ép nhỏ, người dùng sẽ vuốt ngang */
+            min-width: 600px;
+
+            max-height: 90vh;
+            border-collapse: collapse;
+
+            /* Không dùng margin: auto vì nó làm bảng bị căn giữa và mất mép trái */
+            margin: 0;
+
+            font-size: 18px;
+            opacity: 0;
+            transform: scale(.8);
+            transition: .3s;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+            border-radius: 10px;
+            overflow: hidden;
+            background: white;
+        }
+
+        .table-box {
+            /* Khung bảng luôn nằm gọn trong màn hình */
+            width: min(90vw, 1400px);
+            max-width: calc(100vw - 32px);
+
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 18px;
+
+            /* Khi bảng rộng hơn điện thoại, cho phép vuốt ngang */
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .table-box .btn {
+            align-self: center;
+            text-align: center;
+        }
+
+        .sodo {
+            display: block;
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+            margin: 30px auto;
+            border-radius: 10px;
+        }
+
+        .sodo-container {
+            position: relative;
+            width: min(95%, 1000px);
+            margin: 30px auto;
+        }
+
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .map-overlay path {
+            fill: transparent;
+            cursor: pointer;
+
+        }
+
+        @media (max-width: 768px) {
+
+            nav {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 20px;
+            }
+
+            .menu {
+                display: none;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0;
+                width: 100%;
+                background: #222;
+                position: absolute;
+                top: 100%;
+                left: 0;
+            }
+
+            .menu-btn {
+                display: block;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 30px;
+                cursor: pointer;
+                margin-left: auto;
+            }
+
+            .showmenu {
+                display: flex;
+            }
+
+            nav li {
+                width: 100%;
+            }
+
+            nav li a {
+                display: block;
+                width: 100%;
+                padding: 15px 20px;
+            }
+
+            .dropdown-content {
+                position: static;
+                display: none;
+                transform: none;
+                width: 100%;
+                background: #333;
+                border: none;
+                box-shadow: none;
+            }
+
+            .dropdown.open .dropdown-content {
+                display: block;
+            }
+
+            .dropdown-content a {
+                color: white;
+                padding-left: 40px;
+            }
+
+            .hero {
+                padding: 90px 15px 20px;
+                justify-content: center;
+                overflow: hidden;
+            }
+
+            .mainimage {
+                width: 100%;
+                overflow: hidden;
+            }
+
+            .mainimage img {
+                width: auto;
+                height: 35vh;
+                object-fit: cover;
+                border-radius: 10px;
+            }
+
+            .subimage {
+                width: 100%;
+                overflow-x: auto;
+                overflow-y: hidden;
+                margin-top: 12px;
+                scrollbar-width: thin;
+            }
+
+            .thumbs {
+                display: flex;
+                width: max-content;
+                gap: 10px;
+            }
+
+            .thumb {
+                flex-shrink: 0;
+                width: 90px;
+                height: 60px;
+            }
+
+
+            section {
+                padding: 60px 18px;
+            }
+
+            .about-item {
+                flex-direction: column !important;
+                gap: 20px;
+            }
+
+            .about-img,
+            .about-text {
+                width: 100%;
+            }
+
+            .about-img img {
+                max-height: 260px;
+                object-fit: cover;
+            }
+
+            .about-text p {
+                font-size: 15px;
+                line-height: 1.7;
+                text-indent: 1.5em;
+            }
+
+
+
+            .popup {
+                width: 92vw;
+                padding: 20px;
+                max-height: 85vh;
+                overflow-y: auto;
+            }
+
+
+
+            .table-note {
+                display: block;
+                font-size: 13px;
+                color: #666;
+                margin-bottom: 10px;
+            }
+
+            .table-wrapper {
+                /* Nền popup chiếm trọn màn hình */
+                overflow: hidden;
+                padding: 16px;
+            }
+
+            .table-box {
+                /* Chừa 16px mỗi bên, không bị tràn màn hình */
+                width: 100%;
+                max-width: 100%;
+
+                /* Vuốt ngang trên bảng để xem các cột bên phải */
+                overflow-x: auto;
+                overflow-y: hidden;
+            }
+
+            .bang {
+                /* Chiều rộng thật của bảng; màn hình nhỏ sẽ cuộn ngang */
+                min-width: 520px;
+                width: 520px;
+                font-size: 13px;
+                margin: 0;
+            }
+
+            .bang th,
+            .bang td {
+                padding: 10px 8px;
+                white-space: nowrap;
+            }
+
+
+            .topBtn {
+                width: 45px;
+                height: 45px;
+                right: 15px;
+                bottom: 15px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-<nav>
-    <button class="menu-btn">☰</button>
-    <ul class = "menu">
-        <li><a href="#hero">Trang chủ</a></li>
-        <li><a href="#gioithieu">Giới thiệu</a></li>
-        <li><a href="#danhsach">Danh sách anh hùng liệt sĩ</a></li>
-        <li class="dropdown">
-            <a >Các hoạt động ▼</a>
-            <ul class="dropdown-content">
-                <li><a href="#hoatdongxa">Hoạt động của xã</a></li>
-                <li><a href="#hoatdongsvtn">Hoạt động của đội SVTN</a></li>
-            </ul>
-        </li>
-        <li><a href="#lienhe">Liên hệ</a></li>
-    </ul>
-</nav>
+    <nav>
+        <button class="menu-btn">☰</button>
+        <ul class="menu">
+            <li><a href="#hero">Trang chủ</a></li>
+            <li><a href="#gioithieu">Giới thiệu</a></li>
+            <li><a href="#danhsach">Danh sách anh hùng liệt sĩ</a></li>
+            <li class="dropdown">
+                <a>Các hoạt động ▼</a>
+                <ul class="dropdown-content">
+                    <li><a href="#hoatdongxa">Hoạt động của xã</a></li>
+                    <li><a href="#hoatdongsvtn">Hoạt động của đội SVTN</a></li>
+                </ul>
+            </li>
+            <li><a href="#lienhe">Liên hệ</a></li>
+        </ul>
+    </nav>
 
-<section class="hero" id="hero">
-    <div class = "slider">
-<div class="mainimage">
-    <img class="mainimg" src="img1.JPG">
-</div>
-<div class="subimage">
-<div class="thumbs">
-    <img src="img1.JPG" class="thumb active">
-    <img src="img2.jpg" class="thumb">
-    <img src="img3.jpg" class="thumb">
-    <img src="img4.jpg" class="thumb">
-    <img src="img5.jpg" class="thumb">
-    <img src="img6.jpg" class="thumb">
-    <img src="img7.jpg" class="thumb">
-    <img src="img8.jpg" class="thumb">
-</div>
-</div>
-    </div>
-</section>
+    <section class="hero" id="hero">
+        <div class="slider">
+            <div class="mainimage">
+                <img class="mainimg" src="img1.JPG">
+            </div>
+            <div class="subimage">
+                <div class="thumbs">
+                    <img src="img1.JPG" class="thumb active">
+                    <img src="img2.jpg" class="thumb">
+                    <img src="img3.jpg" class="thumb">
+                    <img src="img4.jpg" class="thumb">
+                    <img src="img5.jpg" class="thumb">
+                    <img src="img6.jpg" class="thumb">
+                    <img src="img7.jpg" class="thumb">
+                    <img src="img8.jpg" class="thumb">
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="gioithieu" class="hidden">
-<h2>Giới thiệu</h2>
-    <div class="about-item">
-        <div class="about-img">
-            <img src="gioithieu1.png">
+    <section id="gioithieu" class="hidden">
+        <h2>Giới thiệu</h2>
+        <div class="about-item">
+            <div class="about-img">
+                <img src="gioithieu1.png">
+            </div>
+            <div class="about-text">
+                Nghĩa trang Liệt sĩ xã Phú Lạc tọa lạc tại xã Phú Lạc, tỉnh Thái Nguyên, là nơi an nghỉ của các Anh hùng
+                Liệt sĩ đã hy sinh vì độc lập, tự do của Tổ quốc. Không chỉ là công trình mang ý nghĩa tâm linh sâu sắc,
+                nơi đây còn là biểu tượng thiêng liêng, thể hiện lòng biết ơn và sự tri ân sâu sắc của các thế hệ hôm
+                nay đối với những người đã cống hiến, hy sinh vì đất nước.
+            </div>
         </div>
-        <div class="about-text">
-            Nghĩa trang Liệt sĩ xã Phú Lạc tọa lạc tại xã Phú Lạc, tỉnh Thái Nguyên, là nơi an nghỉ của các Anh hùng Liệt sĩ đã hy sinh vì độc lập, tự do của Tổ quốc. Không chỉ là công trình mang ý nghĩa tâm linh sâu sắc, nơi đây còn là biểu tượng thiêng liêng, thể hiện lòng biết ơn và sự tri ân sâu sắc của các thế hệ hôm nay đối với những người đã cống hiến, hy sinh vì đất nước.
-        </div>
-    </div>
 
-    <div class="about-item" style="flex-direction:row-reverse;">
-        <div class="about-img">
-            <img src="gioithieu2.png">
+        <div class="about-item" style="flex-direction:row-reverse;">
+            <div class="about-img">
+                <img src="gioithieu2.png">
+            </div>
+            <div class="about-text">
+                Nhân dịp chuẩn bị đón Tết Nguyên đán Bính Ngọ 2026, vào sáng ngày 09/02, Đảng ủy, HĐND, UBND, Ủy ban
+                MTTQ Việt Nam xã cùng các ban, ngành, đoàn thể chính trị xã Phú Lạc đã trang trọng tổ chức Lễ dâng
+                hương, dâng hoa tại Nghĩa trang Liệt sĩ. Hoạt động nhằm tưởng nhớ và bày tỏ lòng tri ân sâu sắc đối với
+                các Anh hùng Liệt sĩ, đồng thời góp phần giáo dục truyền thống yêu nước, đạo lý “uống nước nhớ nguồn”
+                cho các thế hệ hôm nay và mai sau.
+            </div>
         </div>
-        <div class="about-text">
-            Nhân dịp chuẩn bị đón Tết Nguyên đán Bính Ngọ 2026, vào sáng ngày 09/02, Đảng ủy, HĐND, UBND, Ủy ban MTTQ Việt Nam xã cùng các ban, ngành, đoàn thể chính trị xã Phú Lạc đã trang trọng tổ chức Lễ dâng hương, dâng hoa tại Nghĩa trang Liệt sĩ. Hoạt động nhằm tưởng nhớ và bày tỏ lòng tri ân sâu sắc đối với các Anh hùng Liệt sĩ, đồng thời góp phần giáo dục truyền thống yêu nước, đạo lý “uống nước nhớ nguồn” cho các thế hệ hôm nay và mai sau.
-        </div>
-    </div>
 
-    <div class="about-item">
-        <div class="about-img">
-            <img src="gioithieu3.png">
+        <div class="about-item">
+            <div class="about-img">
+                <img src="gioithieu3.png">
+            </div>
+            <div class="about-text">
+                Công trình thanh niên số hóa là sự tri ân sâu sắc đối với các Anh hùng Liệt sĩ, đồng thời lan tỏa những
+                giá trị tốt đẹp của đạo lý “Uống nước nhớ nguồn”, “Đền ơn đáp nghĩa” trong thời đại mới. Việc ứng dụng
+                công nghệ vào lưu trữ và tra cứu thông tin không chỉ góp phần gìn giữ ký ức lịch sử một cách bền vững mà
+                còn thể hiện tinh thần trách nhiệm, sự năng động và sáng tạo của tuổi trẻ Đội Sinh viên tình nguyện
+                Trường Hóa và Khoa học Sự sống – Đại học Bách khoa Hà Nội trong hành trình chung tay xây dựng và bảo vệ
+                Tổ quốc.
+            </div>
         </div>
-        <div class="about-text">
-            Công trình thanh niên số hóa là sự tri ân sâu sắc đối với các Anh hùng Liệt sĩ, đồng thời lan tỏa những giá trị tốt đẹp của đạo lý “Uống nước nhớ nguồn”, “Đền ơn đáp nghĩa” trong thời đại mới. Việc ứng dụng công nghệ vào lưu trữ và tra cứu thông tin không chỉ góp phần gìn giữ ký ức lịch sử một cách bền vững mà còn thể hiện tinh thần trách nhiệm, sự năng động và sáng tạo của tuổi trẻ Đội Sinh viên tình nguyện Trường Hóa và Khoa học Sự sống – Đại học Bách khoa Hà Nội trong hành trình chung tay xây dựng và bảo vệ Tổ quốc.
+    </section>
+    <section id="hoatdongxa" class="hidden">
+        <h2>Các hoạt động của xã</h2>
+        <div class="slider">
+            <div class="mainimage">
+                <img class="mainimg" src="img1.JPG">
+            </div>
+            <div class="subimage">
+                <div class="thumbs">
+                    <img src="hdx1.jpg" class="thumb active">
+                    <img src="hdx2.jpg" class="thumb">
+                    <img src="hdx3.jpg" class="thumb">
+                    <img src="hdx4.jpg" class="thumb">
+                    <img src="hdx5.jpg" class="thumb">
+                    <img src="hdx6.jpg" class="thumb">
+                    <img src="hdx7.jpg" class="thumb">
+                </div>
+            </div>
         </div>
-    </div>
-</section>
-<section id="hoatdongxa" class="hidden">
-<h2>Các hoạt động của xã</h2>
-<div class = "slider">
-    <div class="mainimage">
-    <img class="mainimg" src="img1.JPG">
-</div>
-<div class="subimage">
-<div class="thumbs">
-    <img src="hdx1.jpg" class="thumb active">
-    <img src="hdx2.jpg" class="thumb">
-    <img src="hdx3.jpg" class="thumb">
-    <img src="hdx4.jpg" class="thumb">
-    <img src="hdx5.jpg" class="thumb">
-    <img src="hdx6.jpg" class="thumb">
-    <img src="hdx7.jpg" class="thumb">
-</div>
-</div>      
-</div>
-</section>
-<section id="hoatdongsvtn" class="hidden">
-    <h2>Các hoạt động của đội SVTN trường HVKHSS</h2>
-</section>
+    </section>
+    <section id="hoatdongsvtn" class="hidden">
+        <h2>Các hoạt động của đội SVTN trường HVKHSS</h2>
+    </section>
 
-<section id="danhsach" class="hidden">
+    <section id="danhsach" class="hidden">
         <h2 style="text-align: center;">Danh sách anh hùng liệt sĩ</h2>
-<div class="sodo-container">
+        <div class="sodo-container">
 
-        <img src="sodo.jpg" class="sodo">
+            <img src="sodo.jpg" class="sodo">
 
-        <svg class="map-overlay"
-             viewBox="0 0 1366 768"
-             preserveAspectRatio="xMidYMid meet">
+            <svg class="map-overlay" viewBox="0 0 1366 768" preserveAspectRatio="xMidYMid meet">
 
-            <path id="mo1" d="M75.597734,456.543584v-24.987678L84.521905,415.4924h14.278671l1.784834,8.92417q7.139337,21.418009,5.354503,21.418009t-1.784835,16.063507l-28.557344-5.354502Z"></path>
-            <path id="mo2" d="M148.775932,456.543584l5.354502-24.987678l8.92417-16.063506l19.633175,8.92417-.000001,14.278673l7.139335,17.848341h-41.051181Z"></path>
-            <path id="mo3" d="M220.169295,461.898086l5.354502-23.202843-1.784834-14.278674l14.278673-8.92417l19.633173,8.92417v11.601422l8.924171,25.880094-46.405685.000001Z"></path>
-            <path id="mo4" d="M294.184394,461.898086l9.872102-30.34218L318.335169,415.4924l17.762834,16.063506l1.783557,24.987678-43.697166,5.354502Z"></path>
-            <path id="mo5" d="M370.095357,456.543584l8.924171-20.525592L389.728531,415.4924l19.633175,8.92417l3.569668,21.418009l1.784834,10.709005h-44.620851Z"></path>
-            <path id="mo6" d="M445.058389,461.898087l8.92417-16.063508v-21.418009l19.633175-8.92417l12.493837,16.063506v14.278673l3.569669,16.063507-44.620851.000001Z"></path>
-            <path id="mo7" d="M525.375922,461.898086l7.139337-23.202842l3.569667-23.202844l19.633175,8.92417l5.354502,14.278674l8.924169,17.84834-44.62085,5.354502Z"></path>
-            <path id="mo8" d="M48.825223,524.367279l1.784834-19.633175l12.493839-23.202843l12.493837,10.709004.000002,19.633175l8.924171,16.063507-35.696683-3.569668Z"></path>
-            <path id="mo9" d="M114.864084,529.721781l7.139336-24.987677l14.278673-23.202843l17.848345,23.202843v23.202843l-39.266354,1.784834Z"></path>
-            <path id="mo10" d="M189.827117,529.721781l14.278671-17.848341-1.784835-19.633176l17.848343-.000001l5.354501,12.493839v23.202843l-35.69668,1.784836Z"></path>
-            <path id="mo11" d="M266.574983,527.936947l10.709002-16.955923l1.784834-18.740759l15.115576-10.709004l9.872102,23.202843v24.987677l-37.481514-1.784834Z"></path>
-            <path id="mo12" d="M345.10768,527.936947l5.354502-23.202843l12.493839-23.202844l16.063509,23.202842v19.633175l-33.91185,3.56967Z"></path>
-            <path id="mo13" d="M414.716211,527.936947l10.709003-23.202843l12.493837-23.202844l16.06351,23.202842v24.987677l-39.26635-1.784832Z"></path>
-            <path id="mo14" d="M498.603411,527.936947v-16.063507l7.139336-19.633175l12.493839-10.709004l7.139337,10.709004l7.139337,19.633174l3.569666,17.848341-37.481515-1.784833Z"></path>
-            <path id = "mo15" d="M823.94382,460.224719l-3.835206-15.340824l7.670412-17.258427l7.670412-15.340824h13.423221l7.670412,9.588015-3.835206,23.011236l7.670412,9.588015-36.434457,5.752809Z"></path>
-            <path id = "mo16" d="M904.483146,460.224719v-15.340824l5.752809-23.011236l13.423221-9.588015l21.093633,9.588014-1.917604,23.011235l5.752809,9.588014-44.104868,5.752812Z"></path>
-            <path id = "mo17" d="M1032.962543,460.224715l-42.187262.000009v-15.340829l13.423221-.000001-3.835207-23.011236l17.258426-9.588015l5.752809,9.588019l5.752808,23.01123l3.835205,15.340823Z"></path>
-            <path id = "mo18" d="M1077.067415,454.471912l3.835206-26.846444l9.588015-15.340824h15.340824l11.505618,9.588015-3.835206,23.011241l7.670412,15.340819-44.104869-5.752807Z"></path>
-            <path id = "mo19" d="M1167.194756,454.471912l-1.917603-9.588017q7.670411-13.423226,7.670411-23.011236t17.258427-9.58801l7.670412,9.588017l1.917603,23.011229l3.835206,15.340824-36.434456-5.752807Z"></path>
-            <path id = "mo20" d="M1249.651685,460.224719l1.917603-15.340824l5.752808-23.011229l17.258426-9.588018l13.42322,9.588016-.000001,23.011228-.000001,9.588016-38.352055,5.752811Z"></path>
-            <path id = "mo21" d="M848.872659,517.752809v-13.423221l7.670412-23.011236l15.340824-3.835207l11.505618,32.599251l7.670412,9.588015-42.187266-1.917602Z"></path>
-            <path id = "mo22" d="M926.535581,519.670412l16.299625-15.340823-7.670412-23.011236l13.423221-3.835208l11.505618-.000001l1.917603,21.093633l13.423221,11.505618-7.670412,9.588015-41.228464.000002Z"></path> 
-            <path id = "mo23" d="M1017.621725,519.670414l5.752809-15.340825l5.752807-23.011234l15.340823-3.83521l15.340823,26.846443v13.423221l-42.187262,1.917605Z"></path>
-            <path id = "mo24" d="M1105.83146,519.670415v-15.340824l7.670412-23.011235q0-3.835211,7.670412-3.835211t23.011236,13.423221l-1.917603,13.423224l3.835206,13.423219-40.269663,1.917606Z"></path>
-            <path id = "mo25" d="M1190.205992,519.670416v-15.340827l7.670412-23.011232q15.340824-7.670419,19.17603-3.835212c3.835206,3.835207,5.752809,13.42322,7.670412,13.42322q1.917603,0,1.917603,13.423221l9.588015,13.42322-46.022472,1.91761Z"> </path>
-            <path id = "mo26" d="M1316.767792,519.670412l-42.187261.000001l13.423218-15.340823v-13.423222q13.423219-13.423222,15.340822-13.423222t13.423221,20.59195l-.000001,12.007301"></path>
-    </svg>
-</div>
-</section>
-<div class="table-wrapper" id = "tablePopup">
-    <div class="table-box">
-    <table class="bang">
-        <thead>
-            <tr>
-                <th>Họ và tên</th>
-                <th>Quê quán</th>
-                <th>Năm sinh</th>
-                <th>Năm mất</th>
-                <th>Vị trí mộ</th>
-            </tr>
-        </thead>
-        <tbody id="bangbody">
-        </tbody>
-    </table>
-    <button class="btn" onclick="closeTable()">Đóng</button>
+                <path id="mo1"
+                    d="M75.597734,456.543584v-24.987678L84.521905,415.4924h14.278671l1.784834,8.92417q7.139337,21.418009,5.354503,21.418009t-1.784835,16.063507l-28.557344-5.354502Z">
+                </path>
+                <path id="mo2"
+                    d="M148.775932,456.543584l5.354502-24.987678l8.92417-16.063506l19.633175,8.92417-.000001,14.278673l7.139335,17.848341h-41.051181Z">
+                </path>
+                <path id="mo3"
+                    d="M220.169295,461.898086l5.354502-23.202843-1.784834-14.278674l14.278673-8.92417l19.633173,8.92417v11.601422l8.924171,25.880094-46.405685.000001Z">
+                </path>
+                <path id="mo4"
+                    d="M294.184394,461.898086l9.872102-30.34218L318.335169,415.4924l17.762834,16.063506l1.783557,24.987678-43.697166,5.354502Z">
+                </path>
+                <path id="mo5"
+                    d="M370.095357,456.543584l8.924171-20.525592L389.728531,415.4924l19.633175,8.92417l3.569668,21.418009l1.784834,10.709005h-44.620851Z">
+                </path>
+                <path id="mo6"
+                    d="M445.058389,461.898087l8.92417-16.063508v-21.418009l19.633175-8.92417l12.493837,16.063506v14.278673l3.569669,16.063507-44.620851.000001Z">
+                </path>
+                <path id="mo7"
+                    d="M525.375922,461.898086l7.139337-23.202842l3.569667-23.202844l19.633175,8.92417l5.354502,14.278674l8.924169,17.84834-44.62085,5.354502Z">
+                </path>
+                <path id="mo8"
+                    d="M48.825223,524.367279l1.784834-19.633175l12.493839-23.202843l12.493837,10.709004.000002,19.633175l8.924171,16.063507-35.696683-3.569668Z">
+                </path>
+                <path id="mo9"
+                    d="M114.864084,529.721781l7.139336-24.987677l14.278673-23.202843l17.848345,23.202843v23.202843l-39.266354,1.784834Z">
+                </path>
+                <path id="mo10"
+                    d="M189.827117,529.721781l14.278671-17.848341-1.784835-19.633176l17.848343-.000001l5.354501,12.493839v23.202843l-35.69668,1.784836Z">
+                </path>
+                <path id="mo11"
+                    d="M266.574983,527.936947l10.709002-16.955923l1.784834-18.740759l15.115576-10.709004l9.872102,23.202843v24.987677l-37.481514-1.784834Z">
+                </path>
+                <path id="mo12"
+                    d="M345.10768,527.936947l5.354502-23.202843l12.493839-23.202844l16.063509,23.202842v19.633175l-33.91185,3.56967Z">
+                </path>
+                <path id="mo13"
+                    d="M414.716211,527.936947l10.709003-23.202843l12.493837-23.202844l16.06351,23.202842v24.987677l-39.26635-1.784832Z">
+                </path>
+                <path id="mo14"
+                    d="M498.603411,527.936947v-16.063507l7.139336-19.633175l12.493839-10.709004l7.139337,10.709004l7.139337,19.633174l3.569666,17.848341-37.481515-1.784833Z">
+                </path>
+                <path id="mo15"
+                    d="M823.94382,460.224719l-3.835206-15.340824l7.670412-17.258427l7.670412-15.340824h13.423221l7.670412,9.588015-3.835206,23.011236l7.670412,9.588015-36.434457,5.752809Z">
+                </path>
+                <path id="mo16"
+                    d="M904.483146,460.224719v-15.340824l5.752809-23.011236l13.423221-9.588015l21.093633,9.588014-1.917604,23.011235l5.752809,9.588014-44.104868,5.752812Z">
+                </path>
+                <path id="mo17"
+                    d="M1032.962543,460.224715l-42.187262.000009v-15.340829l13.423221-.000001-3.835207-23.011236l17.258426-9.588015l5.752809,9.588019l5.752808,23.01123l3.835205,15.340823Z">
+                </path>
+                <path id="mo18"
+                    d="M1077.067415,454.471912l3.835206-26.846444l9.588015-15.340824h15.340824l11.505618,9.588015-3.835206,23.011241l7.670412,15.340819-44.104869-5.752807Z">
+                </path>
+                <path id="mo19"
+                    d="M1167.194756,454.471912l-1.917603-9.588017q7.670411-13.423226,7.670411-23.011236t17.258427-9.58801l7.670412,9.588017l1.917603,23.011229l3.835206,15.340824-36.434456-5.752807Z">
+                </path>
+                <path id="mo20"
+                    d="M1249.651685,460.224719l1.917603-15.340824l5.752808-23.011229l17.258426-9.588018l13.42322,9.588016-.000001,23.011228-.000001,9.588016-38.352055,5.752811Z">
+                </path>
+                <path id="mo21"
+                    d="M848.872659,517.752809v-13.423221l7.670412-23.011236l15.340824-3.835207l11.505618,32.599251l7.670412,9.588015-42.187266-1.917602Z">
+                </path>
+                <path id="mo22"
+                    d="M926.535581,519.670412l16.299625-15.340823-7.670412-23.011236l13.423221-3.835208l11.505618-.000001l1.917603,21.093633l13.423221,11.505618-7.670412,9.588015-41.228464.000002Z">
+                </path>
+                <path id="mo23"
+                    d="M1017.621725,519.670414l5.752809-15.340825l5.752807-23.011234l15.340823-3.83521l15.340823,26.846443v13.423221l-42.187262,1.917605Z">
+                </path>
+                <path id="mo24"
+                    d="M1105.83146,519.670415v-15.340824l7.670412-23.011235q0-3.835211,7.670412-3.835211t23.011236,13.423221l-1.917603,13.423224l3.835206,13.423219-40.269663,1.917606Z">
+                </path>
+                <path id="mo25"
+                    d="M1190.205992,519.670416v-15.340827l7.670412-23.011232q15.340824-7.670419,19.17603-3.835212c3.835206,3.835207,5.752809,13.42322,7.670412,13.42322q1.917603,0,1.917603,13.423221l9.588015,13.42322-46.022472,1.91761Z">
+                </path>
+                <path id="mo26"
+                    d="M1316.767792,519.670412l-42.187261.000001l13.423218-15.340823v-13.423222q13.423219-13.423222,15.340822-13.423222t13.423221,20.59195l-.000001,12.007301">
+                </path>
+                <path id="mo27"
+                    d="M651.787738,458.374361l-3.567115-16.05202h16.05202l-3.567116-44.588946L664.272643,384L683,376.3307l18.727357,7.669299l7.134232,13.733394v44.588946h8.917789l3.567114,16.05202-69.558754.000002Z">
+                </path>
+
+            </svg>
+
+        </div>
+    </section>
+    <div class="table-wrapper" id="tablePopup">
+        <div class="table-box">
+            <table class="bang">
+                <thead>
+                    <tr>
+                        <th>Họ và tên</th>
+                        <th>Quê quán</th>
+                        <th>Năm sinh</th>
+                        <th>Năm mất</th>
+                        <th>Vị trí mộ</th>
+                    </tr>
+                </thead>
+                <tbody id="bangbody">
+                </tbody>
+            </table>
+            <button class="btn" onclick="closeTable()">Đóng</button>
+        </div>
     </div>
-</div>
 
-<section id="lienhe" class="hidden">
-<h2>Liên hệ</h2>
-<p>Điện thoại: 2342343243324324</p>
-<p>Email: ưefewfewfewf</p>
-</section>
+    <section id="lienhe" class="hidden">
+        <h2>Liên hệ</h2>
+        <p>Điện thoại: 2342343243324324</p>
+        <p>Email: ưefewfewfewf</p>
+    </section>
 
-<button id="topBtn" class="topBtn">
-&#8679;
-</button>
+    <button id="topBtn" class="topBtn">
+        &#8679;
+    </button>
 
-<script>
-    /*DROPDOWN TRÊN ĐIỆN THOẠI */
+    <script>
+        /*DROPDOWN TRÊN ĐIỆN THOẠI */
 
-if (window.innerWidth <= 768) {
-    const btn = document.querySelector(".menu-btn");
-    const menu = document.querySelector(".menu");
-    btn.addEventListener("click", (e) => {
-        e.stopPropagation();  
-        menu.classList.toggle("showmenu");
-    });
-    document.addEventListener("click", (event) => {
-        if (!menu.contains(event.target) && !btn.contains(event.target)) {
-            menu.classList.remove("showmenu");
-            document.querySelectorAll(".dropdown").forEach(d => d.classList.remove("open"));
-        }
-    });
-    const dropdowns = document.querySelectorAll(".dropdown");
-    dropdowns.forEach(dropdown => {
-        const link = dropdown.querySelector("a");
-        link.addEventListener("click", (e) => {
-            e.preventDefault(); 
-            e.stopPropagation();
-            dropdown.classList.toggle("open");
-        });
-    });
-    const menuLinks = menu.querySelectorAll("li:not(.dropdown) > a, .dropdown-content a");
-    menuLinks.forEach(link => {
-        link.addEventListener("click", () => {
-            menu.classList.remove("showmenu");
+        if (window.innerWidth <= 768) {
+            const btn = document.querySelector(".menu-btn");
+            const menu = document.querySelector(".menu");
+            btn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                menu.classList.toggle("showmenu");
+            });
+            document.addEventListener("click", (event) => {
+                if (!menu.contains(event.target) && !btn.contains(event.target)) {
+                    menu.classList.remove("showmenu");
+                    document.querySelectorAll(".dropdown").forEach(d => d.classList.remove("open"));
+                }
+            });
+            const dropdowns = document.querySelectorAll(".dropdown");
             dropdowns.forEach(dropdown => {
-                dropdown.classList.remove("open");
+                const link = dropdown.querySelector("a");
+                link.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    dropdown.classList.toggle("open");
+                });
             });
-        });
-    });
-}
-/* HIỆN KHI SCROLL */
-const hiddenElements = document.querySelectorAll(".hidden");
-window.addEventListener("scroll",()=>{ 
-    hiddenElements.forEach(el=>{ 
-        const top = el.getBoundingClientRect().top;
-        if(top < window.innerHeight-100){
-            el.classList.add("show");
-        } else {
-            el.classList.remove("show");
-        }
-    });
-});
-
-/* NÚT LÊN ĐẦU */
-const topBtn = document.getElementById("topBtn");
-
-window.addEventListener("scroll",()=>{
-    if(window.scrollY > 300){
-        topBtn.style.display="block";
-    }else{
-        topBtn.style.display="none";
-    }
-});
-topBtn.addEventListener("click",()=>{ 
-    window.scrollTo({top:0,behavior:"smooth"});
-});
-
-
-/* THUMB */
-document.querySelectorAll(".slider").forEach(gallery => {
-    const mainImg = gallery.querySelector(".mainimg");
-    const thumbs = gallery.querySelectorAll(".thumb");
-    let i = 0;
-    function changeImg(index, manual = false){
-        mainImg.src = thumbs[index].src;
-        mainImg.classList.add("changeimg");
-        setTimeout(()=>{
-            mainImg.classList.remove("changeimg");},500);
-        thumbs.forEach(t=>t.classList.remove("active"));
-        thumbs[index].classList.add("active");
-        if(manual){
-            thumbs[index].scrollIntoView({
-                behavior:"smooth",
-                block:"nearest",
-                inline:"center"
+            const menuLinks = menu.querySelectorAll("li:not(.dropdown) > a, .dropdown-content a");
+            menuLinks.forEach(link => {
+                link.addEventListener("click", () => {
+                    menu.classList.remove("showmenu");
+                    dropdowns.forEach(dropdown => {
+                        dropdown.classList.remove("open");
+                    });
+                });
             });
         }
-    }
-    let auto = setInterval(()=>{
-        i++;
-        if(i>=thumbs.length) i=0;
-        changeImg(i);
-    },3000);
-    thumbs.forEach((thumb,index)=>{
-
-        thumb.addEventListener("click",()=>{
-            i=index;
-            changeImg(index,true);
-            clearInterval(auto);
+        /* HIỆN KHI SCROLL */
+        const hiddenElements = document.querySelectorAll(".hidden");
+        window.addEventListener("scroll", () => {
+            hiddenElements.forEach(el => {
+                const top = el.getBoundingClientRect().top;
+                if (top < window.innerHeight - 100) {
+                    el.classList.add("show");
+                } else {
+                    el.classList.remove("show");
+                }
+            });
         });
 
-    });
+        /* NÚT LÊN ĐẦU */
+        const topBtn = document.getElementById("topBtn");
 
-});
-/* POPUP */
-const tablePopup = document.getElementById("tablePopup");
-function showTable(){
-    tablePopup.classList.add("show");
-}
-function closeTable(){
-    tablePopup.classList.remove("show");
-}
-const thongtin1 = [{ name:"Nguyễn Văn An", hometown:"Hà Nội", birth:1946, death:1968, grave:"Hàng 1 - Lô 1" }];
-const thongtin2 = [{ name:"Trần Văn Bình", hometown:"Nam Định", birth:1947, death:1969, grave:"Hàng 1 - Lô 2" }];
-const thongtin3 = [{ name:"Lê Văn Cường", hometown:"Thanh Hóa", birth:1948, death:1970, grave:"Hàng 1 - Lô 3" }];
-const thongtin4 = [{ name:"Phạm Văn Dũng", hometown:"Nghệ An", birth:1945, death:1967, grave:"Hàng 1 - Lô 4" }];
-const thongtin5 = [{ name:"Hoàng Văn Đức", hometown:"Hà Tĩnh", birth:1949, death:1971, grave:"Hàng 1 - Lô 5" }];
-const thongtin6 = [{ name:"Vũ Văn Giang", hometown:"Quảng Bình", birth:1946, death:1969, grave:"Hàng 1 - Lô 6" }];
-const thongtin7 = [{ name:"Đặng Văn Hải", hometown:"Quảng Trị", birth:1947, death:1972, grave:"Hàng 1 - Lô 7" }];
-const thongtin8 = [{ name:"Bùi Văn Hùng", hometown:"Huế", birth:1948, death:1970, grave:"Hàng 1 - Lô 8" }];
-const thongtin9 = [{ name:"Đỗ Văn Khánh", hometown:"Đà Nẵng", birth:1945, death:1968, grave:"Hàng 1 - Lô 9" }];
-const thongtin10 = [{ name:"Ngô Văn Long", hometown:"Quảng Nam", birth:1949, death:1971, grave:"Hàng 1 - Lô 10" }];
-const thongtin11 = [{ name:"Mai Văn Minh", hometown:"Quảng Ngãi", birth:1946, death:1969, grave:"Hàng 2 - Lô 1" }];
-const thongtin12 = [{ name:"Phan Văn Nam", hometown:"Bình Định", birth:1947, death:1970, grave:"Hàng 2 - Lô 2" }];
-const thongtin13 = [{ name:"Lý Văn Phúc", hometown:"Phú Yên", birth:1948, death:1972, grave:"Hàng 2 - Lô 3" }];
-const thongtin14 = [{ name:"Chu Văn Quang", hometown:"Khánh Hòa", birth:1945, death:1968, grave:"Hàng 2 - Lô 4" }];
-const thongtin15 = [{ name:"Dương Văn Sơn", hometown:"Ninh Thuận", birth:1949, death:1971, grave:"Hàng 2 - Lô 5" }];
-const thongtin16 = [{ name:"Lâm Văn Thành", hometown:"Bình Thuận", birth:1946, death:1969, grave:"Hàng 2 - Lô 6" }];
-const thongtin17 = [{ name:"Tạ Văn Tuấn", hometown:"Đồng Nai", birth:1947, death:1970, grave:"Hàng 2 - Lô 7" }];
-const thongtin18 = [{ name:"Tô Văn Vinh", hometown:"Bình Dương", birth:1948, death:1972, grave:"Hàng 2 - Lô 8" }];
-const thongtin19 = [{ name:"Hồ Văn Xuân", hometown:"Long An", birth:1945, death:1968, grave:"Hàng 2 - Lô 9" }];
-const thongtin20 = [{ name:"Cao Văn Yên", hometown:"Tiền Giang", birth:1949, death:1971, grave:"Hàng 2 - Lô 10" }];
-const thongtin21 = [{ name:"Kiều Văn Anh", hometown:"Bến Tre", birth:1946, death:1969, grave:"Hàng 3 - Lô 1" }];
-const thongtin22 = [{ name:"Tăng Văn Bảo", hometown:"Vĩnh Long", birth:1947, death:1970, grave:"Hàng 3 - Lô 2" }];
-const thongtin23 = [{ name:"Hứa Văn Chiến", hometown:"Cần Thơ", birth:1948, death:1972, grave:"Hàng 3 - Lô 3" }];
-const thongtin24 = [{ name:"La Văn Đạt", hometown:"An Giang", birth:1945, death:1968, grave:"Hàng 3 - Lô 4" }];
-const thongtin25 = [{ name:"Quách Văn Em", hometown:"Kiên Giang", birth:1949, death:1971, grave:"Hàng 3 - Lô 5" }];
-const thongtin26 = [{ name:"Tôn Văn Phong", hometown:"Cà Mau", birth:1946, death:1969, grave:"Hàng 3 - Lô 6" }];
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 300) {
+                topBtn.style.display = "block";
+            } else {
+                topBtn.style.display = "none";
+            }
+        });
+        topBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
 
-const data = {
-    mo1: thongtin1,
-    mo2: thongtin2,
-    mo3: thongtin3,
-    mo4: thongtin4,
-    mo5: thongtin5,
-    mo6: thongtin6,
-    mo7: thongtin7,
-    mo8: thongtin8,
-    mo9: thongtin9,
-    mo10: thongtin10,
-    mo11: thongtin11,
-    mo12: thongtin12,
-    mo13: thongtin13,
-    mo14: thongtin14,
-    mo15: thongtin15,
-    mo16: thongtin16,
-    mo17: thongtin17,
-    mo18: thongtin18,
-    mo19: thongtin19,
-    mo20: thongtin20,
-    mo21: thongtin21,
-    mo22: thongtin22,
-    mo23: thongtin23,
-    mo24: thongtin24,
-    mo25: thongtin25,
-    mo26: thongtin26
-};
-const tbody = document.getElementById("bangbody");
-document.querySelectorAll(".map-overlay path").forEach(path => {
-    path.addEventListener("click", () => {
-        const ds = data[path.id];
-        let result = "";
-        ds.forEach(person => {
-            result += `
+
+        /* THUMB */
+        document.querySelectorAll(".slider").forEach(gallery => {
+            const mainImg = gallery.querySelector(".mainimg");
+            const thumbs = gallery.querySelectorAll(".thumb");
+            let i = 0;
+            function changeImg(index, manual = false) {
+                mainImg.src = thumbs[index].src;
+                mainImg.classList.add("changeimg");
+                setTimeout(() => {
+                    mainImg.classList.remove("changeimg");
+                }, 500);
+                thumbs.forEach(t => t.classList.remove("active"));
+                thumbs[index].classList.add("active");
+                if (manual) {
+                    thumbs[index].scrollIntoView({
+                        behavior: "smooth",
+                        block: "nearest",
+                        inline: "center"
+                    });
+                }
+            }
+            let auto = setInterval(() => {
+                i++;
+                if (i >= thumbs.length) i = 0;
+                changeImg(i);
+            }, 3000);
+            thumbs.forEach((thumb, index) => {
+
+                thumb.addEventListener("click", () => {
+                    i = index;
+                    changeImg(index, true);
+                    clearInterval(auto);
+                });
+
+            });
+
+        });
+        /* POPUP */
+        const tablePopup = document.getElementById("tablePopup");
+        function showTable() {
+            tablePopup.classList.add("show");
+        }
+        function closeTable() {
+            tablePopup.classList.remove("show");
+        }
+        tablePopup.addEventListener("click", (event) => {
+            // Chỉ đóng khi bấm vào nền bên ngoài bảng
+            if (event.target === tablePopup) {
+                closeTable();
+            }
+        });
+        const thongtin1 = [{ name: "Nguyễn Văn An", hometown: "Hà Nội", birth: 1946, death: 1968, grave: "Hàng 1 - Lô 1" }];
+        const thongtin2 = [{ name: "Trần Văn Bình", hometown: "Nam Định", birth: 1947, death: 1969, grave: "Hàng 1 - Lô 2" }];
+        const thongtin3 = [{ name: "Lê Văn Cường", hometown: "Thanh Hóa", birth: 1948, death: 1970, grave: "Hàng 1 - Lô 3" }];
+        const thongtin4 = [{ name: "Phạm Văn Dũng", hometown: "Nghệ An", birth: 1945, death: 1967, grave: "Hàng 1 - Lô 4" }];
+        const thongtin5 = [{ name: "Hoàng Văn Đức", hometown: "Hà Tĩnh", birth: 1949, death: 1971, grave: "Hàng 1 - Lô 5" }];
+        const thongtin6 = [{ name: "Vũ Văn Giang", hometown: "Quảng Bình", birth: 1946, death: 1969, grave: "Hàng 1 - Lô 6" }];
+        const thongtin7 = [{ name: "Đặng Văn Hải", hometown: "Quảng Trị", birth: 1947, death: 1972, grave: "Hàng 1 - Lô 7" }];
+        const thongtin8 = [{ name: "Bùi Văn Hùng", hometown: "Huế", birth: 1948, death: 1970, grave: "Hàng 1 - Lô 8" }];
+        const thongtin9 = [{ name: "Đỗ Văn Khánh", hometown: "Đà Nẵng", birth: 1945, death: 1968, grave: "Hàng 1 - Lô 9" }];
+        const thongtin10 = [{ name: "Ngô Văn Long", hometown: "Quảng Nam", birth: 1949, death: 1971, grave: "Hàng 1 - Lô 10" }];
+        const thongtin11 = [{ name: "Mai Văn Minh", hometown: "Quảng Ngãi", birth: 1946, death: 1969, grave: "Hàng 2 - Lô 1" }];
+        const thongtin12 = [{ name: "Phan Văn Nam", hometown: "Bình Định", birth: 1947, death: 1970, grave: "Hàng 2 - Lô 2" }];
+        const thongtin13 = [{ name: "Lý Văn Phúc", hometown: "Phú Yên", birth: 1948, death: 1972, grave: "Hàng 2 - Lô 3" }];
+        const thongtin14 = [{ name: "Chu Văn Quang", hometown: "Khánh Hòa", birth: 1945, death: 1968, grave: "Hàng 2 - Lô 4" }];
+        const thongtin15 = [{ name: "Dương Văn Sơn", hometown: "Ninh Thuận", birth: 1949, death: 1971, grave: "Hàng 2 - Lô 5" }];
+        const thongtin16 = [{ name: "Lâm Văn Thành", hometown: "Bình Thuận", birth: 1946, death: 1969, grave: "Hàng 2 - Lô 6" }];
+        const thongtin17 = [{ name: "Tạ Văn Tuấn", hometown: "Đồng Nai", birth: 1947, death: 1970, grave: "Hàng 2 - Lô 7" }];
+        const thongtin18 = [{ name: "Tô Văn Vinh", hometown: "Bình Dương", birth: 1948, death: 1972, grave: "Hàng 2 - Lô 8" }];
+        const thongtin19 = [{ name: "Hồ Văn Xuân", hometown: "Long An", birth: 1945, death: 1968, grave: "Hàng 2 - Lô 9" }];
+        const thongtin20 = [{ name: "Cao Văn Yên", hometown: "Tiền Giang", birth: 1949, death: 1971, grave: "Hàng 2 - Lô 10" }];
+        const thongtin21 = [{ name: "Kiều Văn Anh", hometown: "Bến Tre", birth: 1946, death: 1969, grave: "Hàng 3 - Lô 1" }];
+        const thongtin22 = [{ name: "Tăng Văn Bảo", hometown: "Vĩnh Long", birth: 1947, death: 1970, grave: "Hàng 3 - Lô 2" }];
+        const thongtin23 = [{ name: "Hứa Văn Chiến", hometown: "Cần Thơ", birth: 1948, death: 1972, grave: "Hàng 3 - Lô 3" }];
+        const thongtin24 = [{ name: "La Văn Đạt", hometown: "An Giang", birth: 1945, death: 1968, grave: "Hàng 3 - Lô 4" }];
+        const thongtin25 = [{ name: "Quách Văn Em", hometown: "Kiên Giang", birth: 1949, death: 1971, grave: "Hàng 3 - Lô 5" }];
+        const thongtin26 = [{ name: "Tôn Văn Phong", hometown: "Cà Mau", birth: 1946, death: 1969, grave: "Hàng 3 - Lô 1" }];
+        const thongtin27 = [{ name: "Hoàng Lê Tuấn Minh", hometown: "Hà Nội", birth: 2007, death: 2026, grave: "Hàng 3 - Lô 6" }];
+        const data = {
+            mo1: thongtin1,
+            mo2: thongtin2,
+            mo3: thongtin3,
+            mo4: thongtin4,
+            mo5: thongtin5,
+            mo6: thongtin6,
+            mo7: thongtin7,
+            mo8: thongtin8,
+            mo9: thongtin9,
+            mo10: thongtin10,
+            mo11: thongtin11,
+            mo12: thongtin12,
+            mo13: thongtin13,
+            mo14: thongtin14,
+            mo15: thongtin15,
+            mo16: thongtin16,
+            mo17: thongtin17,
+            mo18: thongtin18,
+            mo19: thongtin19,
+            mo20: thongtin20,
+            mo21: thongtin21,
+            mo22: thongtin22,
+            mo23: thongtin23,
+            mo24: thongtin24,
+            mo25: thongtin25,
+            mo26: thongtin26,
+            mo27: thongtin27
+        };
+        const tbody = document.getElementById("bangbody");
+        document.querySelectorAll(".map-overlay path").forEach(path => {
+            path.addEventListener("click", () => {
+                const ds = data[path.id];
+                let result = "";
+                ds.forEach(person => {
+                    result += `
                 <tr>
                     <td>${person.name}</td>
                     <td>${person.hometown}</td>
@@ -893,14 +1032,15 @@ document.querySelectorAll(".map-overlay path").forEach(path => {
                 </tr>
             `;
 
+                });
+
+                tbody.innerHTML = result;
+                showTable();
+            });
+
         });
-
-        tbody.innerHTML = result;
-        showTable();  
-    });
-
-});
-</script>
+    </script>
 
 </body>
+
 </html>
