@@ -2,7 +2,9 @@
 <html lang="vi">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Montserrat:wght@700;800;900&display=swap"
+    rel="stylesheet">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,6 +23,7 @@
         body {
             font-family: Arial, sans-serif;
         }
+
         section {
             padding: 100px 10%;
             border-top: 4px solid #d9e9ff;
@@ -29,7 +32,8 @@
         section:nth-of-type(even) {
             background: #eef6ff;
         }
-  /* Các section nền trắng */
+
+        /* Các section nền trắng */
         section:nth-of-type(odd) {
             position: relative;
             overflow: hidden;
@@ -96,59 +100,64 @@
         #hoatdongsvtn {
             border-top: none;
         }
-        header{
-    position: relative;
-    top:0;
-    left:0;
-    width:100%;
-    z-index:1000;
-    height:30vh;
-}
 
-.top-header{
-    position: relative;
-    height:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:url("head.jpg") center/cover no-repeat;
-}
+        header {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            height: 30vh;
+        }
 
-.banner{
-    width:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    position:relative;
-    overflow:hidden;
-    padding:0 20px;
-}
-.banner{
-    z-index:2;
-}
-.top-header::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:rgba(0,0,0,.35);
-}
-.banner h1{
-    font-family: 'Montserrat', sans-serif;
-    font-size: clamp(40px, 5vw, 72px);
-    font-weight: 800;
+        .top-header {
+            position: relative;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url("head.jpg") center/cover no-repeat;
+        }
 
-    color: white;
-    text-align: center;
-    line-height: 1.2;
-    letter-spacing: 3px;
-text-transform: uppercase;
-text-shadow: 
-        2px 2px 10px rgba(0, 0, 0, 0.8),
-        0 0 25px rgba(255, 255, 255, 0.3);
+        .banner {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding: 0 20px;
+        }
 
-    animation: run 5s linear infinite;
-}
+        .banner {
+            z-index: 2;
+        }
+
+        .top-header::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, .35);
+        }
+
+        .banner h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(40px, 5vw, 72px);
+            font-weight: 800;
+
+            color: white;
+            text-align: center;
+            line-height: 1.2;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-shadow:
+                2px 2px 10px rgba(0, 0, 0, 0.8),
+                0 0 25px rgba(255, 255, 255, 0.3);
+
+            animation: run 5s linear infinite;
+        }
+
         /* NAVBAR */
 
         nav {
@@ -190,60 +199,66 @@ text-shadow:
         nav li {
             position: relative;
         }
-.top-header{
-    position: relative;
-    height:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:url("head.jpg") center/cover no-repeat;
-    overflow: hidden;   /* thêm dòng này */
-}
 
-.top-header::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:-50%;
-    width:18%;
-    height:200%;
-    background:linear-gradient(
-        90deg,
-        rgba(255,255,255,0),
-        rgba(255,255,255,.18),
-        rgba(255,255,255,.65),
-        rgba(255,255,255,.18),
-        rgba(255,255,255,0)
-    );
-    transform: skewX(-25deg);
-    animation:shine 2.5s linear infinite;
-    z-index:1;
-}
-@keyframes shine{
-    from{
-        transform: translateX(-200%) skewX(-25deg);
-    }
-    to{
-        transform: translateX(1000%) skewX(-25deg);
-    }
-}
-@keyframes run{
+        .top-header {
+            position: relative;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url("head.jpg") center/cover no-repeat;
+            overflow: hidden;
+            /* thêm dòng này */
+        }
 
-    0%,100%{
-        color:#fff;
-        text-shadow:
-            0 0 10px #fff,
-            0 0 20px rgba(255,255,255,.4);
-    }
+        .top-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -50%;
+            width: 18%;
+            height: 200%;
+            background: linear-gradient(90deg,
+                    rgba(255, 255, 255, 0),
+                    rgba(255, 255, 255, .18),
+                    rgba(255, 255, 255, .65),
+                    rgba(255, 255, 255, .18),
+                    rgba(255, 255, 255, 0));
+            transform: skewX(-25deg);
+            animation: shine 2.5s linear infinite;
+            z-index: 1;
+        }
 
-    50%{
-        color: #ffda75;
-        text-shadow:
-            0 0 12px #ffd54f,
-            0 0 30px #ffca28;
-    }
+        @keyframes shine {
+            from {
+                transform: translateX(-200%) skewX(-25deg);
+            }
 
-} .dropdown {
+            to {
+                transform: translateX(1000%) skewX(-25deg);
+            }
+        }
+
+        @keyframes run {
+
+            0%,
+            100% {
+                color: #fff;
+                text-shadow:
+                    0 0 10px #fff,
+                    0 0 20px rgba(255, 255, 255, .4);
+            }
+
+            50% {
+                color: #ffda75;
+                text-shadow:
+                    0 0 12px #ffd54f,
+                    0 0 30px #ffca28;
+            }
+
+        }
+
+        .dropdown {
             position: relative;
             display: inline-block;
         }
@@ -314,7 +329,7 @@ text-shadow:
 
         section h2 {
             margin-bottom: 20px;
-            text-align:center;
+            text-align: center;
         }
 
         /* GALLERY */
@@ -374,6 +389,7 @@ text-shadow:
             opacity: 1;
             transform: scale(1);
         }
+
         @keyframes mainimganimation {
             0% {
                 transform: scale(0.5);
@@ -414,11 +430,11 @@ text-shadow:
 
         .about-text p {
             max-width: 65ch;
-            font-size: clamp(1.3rem, 1.8vw, 1.6rem);
-            line-height: 1.9;
+            font-size: clamp(1.2rem, 1.7vw, 1.5rem);
+            line-height: 1.7;
             color: #3d3d3d;
             text-align: justify;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.15px;
             text-indent: 2em;
             font-weight: 400;
         }
@@ -476,120 +492,122 @@ text-shadow:
         }
 
         /* BẢNG DỮ LIỆU */
-.table-wrapper {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;  
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.55);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: 0.3s ease-in-out;
-    z-index: 2000;
-}
+        .table-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.55);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: 0.3s ease-in-out;
+            z-index: 2000;
+        }
 
-.table-wrapper.show {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-}
+        .table-wrapper.show {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
 
-.table-box {
-    width: min(90vw, 1200px); 
-    max-height: 85vh;
-    background: transparent; 
-    display: flex;
-    flex-direction: column;
-    box-shadow: none; 
-    padding-bottom: 0; 
-    
-    transform: scale(0.8);
-    transition: 0.3s ease-in-out;
-}
+        .table-box {
+            width: min(90vw, 1200px);
+            max-height: 85vh;
+            background: transparent;
+            display: flex;
+            flex-direction: column;
+            box-shadow: none;
+            padding-bottom: 0;
 
-.table-wrapper.show .table-box {
-    transform: scale(1);
-}
+            transform: scale(0.8);
+            transition: 0.3s ease-in-out;
+        }
 
-.scroll {
-    width: 100%;
-    max-height: calc(85vh - 70px); 
-    overflow: auto;
-    background: transparent; 
-    border-radius: 16px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3); 
-}
+        .table-wrapper.show .table-box {
+            transform: scale(1);
+        }
 
-.table-box .btn {
-    align-self: center;
-    margin-top: 15px; 
-    padding: 10px 40px;
-    text-align: center;
-}
+        .scroll {
+            width: 100%;
+            max-height: calc(85vh - 70px);
+            overflow: auto;
+            background: transparent;
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .table-box .btn {
+            align-self: center;
+            margin-top: 15px;
+            padding: 10px 40px;
+            text-align: center;
+        }
 
 
-.bang {
-    width: 100%;
-    min-width: 600px;
-    border-collapse: separate; 
-    border-spacing: 0;
-    margin: 0;
-    font-size: 18px;
-    background: white;
-}
+        .bang {
+            width: 100%;
+            min-width: 600px;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 0;
+            font-size: 18px;
+            background: white;
+        }
 
-.bang th {
-    background: #1976d2;
-    color: white;
-    padding: 18px;
-    text-align: left;
-    font-weight: 600;
-    position: sticky; 
-    top: 0;
-    z-index: 10;
-}
+        .bang th {
+            background: #1976d2;
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
 
-.bang thead th:first-child {
-    border-top-left-radius: 16px;
-}
+        .bang thead th:first-child {
+            border-top-left-radius: 16px;
+        }
 
-.bang thead th:last-child {
-    border-top-right-radius: 16px;
-}
+        .bang thead th:last-child {
+            border-top-right-radius: 16px;
+        }
 
-.bang tbody tr:last-child td:first-child {
-    border-bottom-left-radius: 16px;
-}
+        .bang tbody tr:last-child td:first-child {
+            border-bottom-left-radius: 16px;
+        }
 
-.bang tbody tr:last-child td:last-child {
-    border-bottom-right-radius: 16px;
-}
+        .bang tbody tr:last-child td:last-child {
+            border-bottom-right-radius: 16px;
+        }
 
-.bang td {
-    padding: 16px 18px;
-    border: 1px solid #d8e6f5;
-    background: #eef6ff;
-    line-height: 1.6;
-}
-.bang tbody tr:nth-child(even) td {
-    background: #e4f0ff;
-}
-.bang tbody tr:hover td {
-    background: #d5e9ff;
-    transition: 0.25s;
-}
+        .bang td {
+            padding: 16px 18px;
+            border: 1px solid #d8e6f5;
+            background: #eef6ff;
+            line-height: 1.6;
+        }
 
-.table-box .btn {
-    align-self: center;
-    margin-top: 20px;
-    padding: 10px 40px;
-    text-align: center;
-}
+        .bang tbody tr:nth-child(even) td {
+            background: #e4f0ff;
+        }
+
+        .bang tbody tr:hover td {
+            background: #d5e9ff;
+            transition: 0.25s;
+        }
+
+        .table-box .btn {
+            align-self: center;
+            margin-top: 20px;
+            padding: 10px 40px;
+            text-align: center;
+        }
 
         .sodo {
             display: block;
@@ -599,6 +617,7 @@ text-shadow:
             margin: 30px auto;
             border-radius: 10px;
         }
+
         .sodo-container {
             position: relative;
             width: min(95%, 1000px);
@@ -618,6 +637,7 @@ text-shadow:
             cursor: pointer;
 
         }
+
         .map-container {
             width: 100%;
             height: 450px;
@@ -759,18 +779,21 @@ text-shadow:
                 line-height: 1.7;
                 text-indent: 1.5em;
             }
+
             .popup {
                 width: 92vw;
                 padding: 20px;
                 max-height: 85vh;
                 overflow-y: auto;
             }
+
             .table-note {
                 display: block;
                 font-size: 13px;
                 color: #666;
                 margin-bottom: 10px;
             }
+
             .table-wrapper {
                 /* Nền popup chiếm trọn màn hình */
                 overflow: hidden;
@@ -808,42 +831,44 @@ text-shadow:
                 right: 15px;
                 bottom: 15px;
             }
+
             .map-container {
                 height: 300px;
             }
         }
     </style>
 </head>
+
 <body>
     <header>
-<div class="top-header">
-        <div class="banner">
-            <h1>NGHĨA TRANG LIỆT SĨ PHỤC LINH</h1>
-            </p>
-        </div>
+        <div class="top-header">
+            <div class="banner">
+                <h1>NGHĨA TRANG LIỆT SĨ PHỤC LINH</h1>
+                </p>
+            </div>
 
-    </div>
-    <nav>
-        <button class="menu-btn">☰</button>
-        <ul class="menu">
-            <li><a href="#hero">Trang chủ</a></li>
-            <li><a href="#gioithieu">Giới thiệu</a></li>
-            <li><a href="#danhsach">Danh sách anh hùng liệt sĩ</a></li>
-            <li class="dropdown">
-                <a>Các hoạt động ▼</a>
-                <ul class="dropdown-content">
-                    <li><a href="#hoatdongxa">Hoạt động của xã</a></li>
-                    <li><a href="#hoatdongsvtn">Hoạt động của đội SVTN</a></li>
-                </ul>
-            </li>
-            <li><a href="#lienhe">Địa chỉ</a></li>
-        </ul>
-    </nav>
-</header>
+        </div>
+        <nav>
+            <button class="menu-btn">☰</button>
+            <ul class="menu">
+                <li><a href="#hero">Trang chủ</a></li>
+                <li><a href="#gioithieu">Giới thiệu</a></li>
+                <li><a href="#danhsach">Danh sách anh hùng liệt sĩ</a></li>
+                <li class="dropdown">
+                    <a>Các hoạt động ▼</a>
+                    <ul class="dropdown-content">
+                        <li><a href="#hoatdongxa">Hoạt động của xã</a></li>
+                        <li><a href="#hoatdongsvtn">Hoạt động của đội SVTN</a></li>
+                    </ul>
+                </li>
+                <li><a href="#lienhe">Địa chỉ</a></li>
+            </ul>
+        </nav>
+    </header>
     <section class="hero" id="hero">
         <div class="slider">
             <div class="mainimage">
-                <img class="mainimg" src="img2.jpg">
+                <img class="mainimg" src="img2.JPG">
             </div>
             <div class="subimage">
                 <div class="thumbs">
@@ -865,10 +890,13 @@ text-shadow:
                 <img src="gioithieu1.jpg">
             </div>
             <div class="about-text">
-                Nghĩa trang Liệt sĩ Phục Linh tọa lạc tại xã Phú Lạc, tỉnh Thái Nguyên, là nơi an nghỉ của các Anh hùng
-                Liệt sĩ đã hy sinh vì độc lập, tự do của Tổ quốc. Không chỉ là công trình mang ý nghĩa tâm linh sâu sắc,
-                nơi đây còn là biểu tượng thiêng liêng, thể hiện lòng biết ơn và sự tri ân sâu sắc của các thế hệ hôm
-                nay đối với những người đã cống hiến, hy sinh vì đất nước.
+                <p>Nghĩa trang Liệt sĩ Phục Linh tọa lạc tại xã Phú Lạc, tỉnh Thái Nguyên, là nơi an nghỉ của các Anh
+                    hùng
+                    Liệt sĩ đã hy sinh vì độc lập, tự do của Tổ quốc. Không chỉ là công trình mang ý nghĩa tâm linh sâu
+                    sắc,
+                    nơi đây còn là biểu tượng thiêng liêng, thể hiện lòng biết ơn và sự tri ân sâu sắc của các thế hệ
+                    hôm
+                    nay đối với những người đã cống hiến, hy sinh vì đất nước.</p>
             </div>
         </div>
 
@@ -877,9 +905,20 @@ text-shadow:
                 <img src="gioithieu2.jpg">
             </div>
             <div class="about-text">
-                Nhân dịp kỷ niệm 71 năm Ngày Thương binh – Liệt sĩ (27/7/1947 – 27/7/2018), ngày 27/7/2018, Khối Giáo dục xã Phục Linh, trong đó có cán bộ, giáo viên, nhân viên Trường Mầm non Phục Linh, đã trang trọng tổ chức Lễ dâng hương tại Nghĩa trang Liệt sĩ xã. Hoạt động nhằm tưởng nhớ và bày tỏ lòng tri ân sâu sắc đối với các Anh hùng Liệt sĩ – những người đã hy sinh vì độc lập, tự do của dân tộc.
+                <p> Nhân dịp kỷ niệm 71 năm Ngày Thương binh – Liệt sĩ (27/7/1947 – 27/7/2018), ngày 27/7/2018, Khối
+                    Giáo
+                    dục xã Phục Linh, trong đó có cán bộ, giáo viên, nhân viên Trường Mầm non Phục Linh, đã trang trọng
+                    tổ
+                    chức Lễ dâng hương tại Nghĩa trang Liệt sĩ xã. Hoạt động nhằm tưởng nhớ và bày tỏ lòng tri ân sâu
+                    sắc
+                    đối với các Anh hùng Liệt sĩ – những người đã hy sinh vì độc lập, tự do của dân tộc.
 
-Buổi lễ có sự tham gia của cán bộ, công chức, viên chức và nhân dân địa phương, thể hiện đạo lý “uống nước nhớ nguồn”. Qua đó, đoàn bày tỏ lòng biết ơn, đồng thời khẳng định quyết tâm tiếp tục học tập, rèn luyện, góp phần xây dựng quê hương ngày càng phát triển, xứng đáng với sự hy sinh của các thế hệ đi trước.
+                    Buổi lễ có sự tham gia của cán bộ, công chức, viên chức và nhân dân địa phương, thể hiện đạo lý
+                    “uống
+                    nước nhớ nguồn”. Qua đó, đoàn bày tỏ lòng biết ơn, đồng thời khẳng định quyết tâm tiếp tục học tập,
+                    rèn
+                    luyện, góp phần xây dựng quê hương ngày càng phát triển, xứng đáng với sự hy sinh của các thế hệ đi
+                    trước.</p>
             </div>
         </div>
 
@@ -888,12 +927,16 @@ Buổi lễ có sự tham gia của cán bộ, công chức, viên chức và nh
                 <img src="gioithieu3.jpg">
             </div>
             <div class="about-text">
-                Công trình thanh niên số hóa là sự tri ân sâu sắc đối với các Anh hùng Liệt sĩ, đồng thời lan tỏa những
-                giá trị tốt đẹp của đạo lý “Uống nước nhớ nguồn”, “Đền ơn đáp nghĩa” trong thời đại mới. Việc ứng dụng
-                công nghệ vào lưu trữ và tra cứu thông tin không chỉ góp phần gìn giữ ký ức lịch sử một cách bền vững mà
-                còn thể hiện tinh thần trách nhiệm, sự năng động và sáng tạo của tuổi trẻ Đội Sinh viên tình nguyện
-                Trường Hóa và Khoa học Sự sống – Đại học Bách khoa Hà Nội trong hành trình chung tay xây dựng và bảo vệ
-                Tổ quốc.
+                <p> Công trình thanh niên số hóa là sự tri ân sâu sắc đối với các Anh hùng Liệt sĩ, đồng thời lan tỏa
+                    những
+                    giá trị tốt đẹp của đạo lý “Uống nước nhớ nguồn”, “Đền ơn đáp nghĩa” trong thời đại mới. Việc ứng
+                    dụng
+                    công nghệ vào lưu trữ và tra cứu thông tin không chỉ góp phần gìn giữ ký ức lịch sử một cách bền
+                    vững mà
+                    còn thể hiện tinh thần trách nhiệm, sự năng động và sáng tạo của tuổi trẻ Đội Sinh viên tình nguyện
+                    Trường Hóa và Khoa học Sự sống – Đại học Bách khoa Hà Nội trong hành trình chung tay xây dựng và bảo
+                    vệ
+                    Tổ quốc.</p>
             </div>
         </div>
     </section>
@@ -1028,33 +1071,35 @@ Buổi lễ có sự tham gia của cán bộ, công chức, viên chức và nh
                 <path id="mo27"
                     d="M651.787738,458.374361l-3.567115-16.05202h16.05202l-3.567116-44.588946L664.272643,384L683,376.3307l18.727357,7.669299l7.134232,13.733394v44.588946h8.917789l3.567114,16.05202-69.558754.000002Z">
                 </path>
-                <path id="mo28" d="M250.487227,144.468184l1.783558,60.640966l87.394334,5.350674v-65.99164h-89.177892Z"></path>
-                <path id ="mo29" d="M1040.603344,146.251742v58.857408h80.260103l1.783556-60.640966-82.043659,1.783558Z" ></path>
+                <path id="mo28" d="M250.487227,144.468184l1.783558,60.640966l87.394334,5.350674v-65.99164h-89.177892Z">
+                </path>
+                <path id="mo29" d="M1040.603344,146.251742v58.857408h80.260103l1.783556-60.640966-82.043659,1.783558Z">
+                </path>
             </svg>
 
         </div>
     </section>
     <div class="table-wrapper" id="tablePopup">
-    <div class="table-box">
-        <div class="scroll">
-            <table class="bang">
-                <thead>
-                    <tr>
-                        <th>Họ và tên</th>
-                        <th>Năm sinh</th>
-                        <th>Năm nhập ngũ</th>
-                        <th>Cấp bậc</th>
-                        <th>Đơn vị</th>
-                        <th>Năm hy sinh</th>
-                    </tr>
-                </thead>
-                <tbody id="bangbody">
-                </tbody>
-            </table>
+        <div class="table-box">
+            <div class="scroll">
+                <table class="bang">
+                    <thead>
+                        <tr>
+                            <th>Họ và tên</th>
+                            <th>Năm sinh</th>
+                            <th>Năm nhập ngũ</th>
+                            <th>Cấp bậc</th>
+                            <th>Đơn vị</th>
+                            <th>Năm hy sinh</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bangbody">
+                    </tbody>
+                </table>
+            </div>
+            <button class="btn" onclick="closeTable()">Đóng</button>
         </div>
-        <button class="btn" onclick="closeTable()">Đóng</button>
     </div>
-</div>
 
     <section id="lienhe" class="hidden">
         <h2>Địa chỉ</h2>
@@ -1184,20 +1229,20 @@ Buổi lễ có sự tham gia của cán bộ, công chức, viên chức và nh
                 closeTable();
             }
         });
-const thongtin1 = [{ fullName: "Trần Đăng Sơ", yearOfBirth: "1941", enlistmentDate: "03 - 1968", rank: "B1 - Cs", unit: "C3 - D7 - E866", dateOfDeath: "21 - 10 - 1968", grave: "" }];
-const thongtin2 = [{ fullName: "Nguyễn Minh Khuê", yearOfBirth: "", enlistmentDate: "04 - 1981", rank: "", unit: "", dateOfDeath: "12 - 10 - 1985 tại Mặt trận Hà Giang", grave: "" }];
-const thongtin3 = [{ fullName: "Đào Xuân Liệu", yearOfBirth: "1960", enlistmentDate: "03 - 1979", rank: "", unit: "", dateOfDeath: "10 - 1981 tại Mặt trận Cao Bằng", grave: "" }];
-const thongtin4 = [{ fullName: "Đặng Văn Mai", yearOfBirth: "1960", enlistmentDate: "09 - 1982", rank: "", unit: "", dateOfDeath: "14 - 06 - 1985 tại Mặt trận Hà Giang", grave: "" }];
-const thongtin5 = [{ fullName: "Nguyễn Văn Long", yearOfBirth: "", enlistmentDate: "", rank: "", unit: "", dateOfDeath: "1948", grave: "" }];
-const thongtin6 = [{ fullName: "Nguyễn Văn Chương", yearOfBirth: "", enlistmentDate: "", rank: "", unit: "", dateOfDeath: "1945", grave: "" }];
-const thongtin7 = [{ fullName: "Trần Văn Thế", yearOfBirth: "06 - 06 - 1960", enlistmentDate: "13 - 07 - 1977", rank: "", unit: "", dateOfDeath: "20 - 04 - 1978 tại Mặt trận Phía Tây", grave: "hàng 1 bên trái" }];
-const thongtin8 = [{ fullName: "Chu Văn Vị", yearOfBirth: "08 - 06 - 1947", enlistmentDate: "1968", rank: "", unit: "", dateOfDeath: "29 - 12 - 1971 tại Mặt trận Quảng Bình", grave: "hàng 1 bên trái" }];
-const thongtin9 = [{ fullName: "Triệu Văn Thuận", yearOfBirth: "01 - 10 - 1950", enlistmentDate: "02 - 03 - 1968", rank: "", unit: "", dateOfDeath: "23 - 11 - 1970 tại Mặt trận Phía Tây", grave: "hàng 1 bên trái" }];
-const thongtin10 = [{ fullName: "Đỗ Đức Thanh", yearOfBirth: "1956", enlistmentDate: "10 - 1974", rank: "", unit: "", dateOfDeath: "20 - 02 - 1979 tại Mặt trận Cao Bằng", grave: "hàng 1 bên trái" }];
-const thongtin11 = [{ fullName: "Phương Văn Tiến", yearOfBirth: "28 - 12 - 1949", enlistmentDate: "04 - 1970", rank: "", unit: "", dateOfDeath: "17 - 04 - 1975 tại Mặt trận Phía Nam", grave: "hàng 1 bên trái" }];
-const thongtin12 = [{ fullName: "Đỗ Xuân Hữu", yearOfBirth: "1944", enlistmentDate: "02 - 1962", rank: "", unit: "", dateOfDeath: "01 - 1968 tại Mặt trận Lào", grave: "hàng 1 bên trái" }];
-const thongtin13 = [{ fullName: "Ngô Anh Đạo", yearOfBirth: "06 - 1958", enlistmentDate: "08 - 1978", rank: "", unit: "", dateOfDeath: "24 - 08 - 1979 tại Mặt trận Lào", grave: "hàng 1 bên trái" }];
-const thongtin14 = [{ fullName: "Trần Đình Trọng", yearOfBirth: "1950", enlistmentDate: "08 - 1969", rank: "", unit: "", dateOfDeath: "23 - 01 - 1971 tại Mặt trận Lào", grave: "Hàng 2 bên trái" }];
+        const thongtin1 = [{ fullName: "Trần Đăng Sơ", yearOfBirth: "1941", enlistmentDate: "03 - 1968", rank: "B1 - Cs", unit: "C3 - D7 - E866", dateOfDeath: "21 - 10 - 1968", grave: "" }];
+        const thongtin2 = [{ fullName: "Nguyễn Minh Khuê", yearOfBirth: "", enlistmentDate: "04 - 1981", rank: "", unit: "", dateOfDeath: "12 - 10 - 1985 tại Mặt trận Hà Giang", grave: "" }];
+        const thongtin3 = [{ fullName: "Đào Xuân Liệu", yearOfBirth: "1960", enlistmentDate: "03 - 1979", rank: "", unit: "", dateOfDeath: "10 - 1981 tại Mặt trận Cao Bằng", grave: "" }];
+        const thongtin4 = [{ fullName: "Đặng Văn Mai", yearOfBirth: "1960", enlistmentDate: "09 - 1982", rank: "", unit: "", dateOfDeath: "14 - 06 - 1985 tại Mặt trận Hà Giang", grave: "" }];
+        const thongtin5 = [{ fullName: "Nguyễn Văn Long", yearOfBirth: "", enlistmentDate: "", rank: "", unit: "", dateOfDeath: "1948", grave: "" }];
+        const thongtin6 = [{ fullName: "Nguyễn Văn Chương", yearOfBirth: "", enlistmentDate: "", rank: "", unit: "", dateOfDeath: "1945", grave: "" }];
+        const thongtin7 = [{ fullName: "Trần Văn Thế", yearOfBirth: "06 - 06 - 1960", enlistmentDate: "13 - 07 - 1977", rank: "", unit: "", dateOfDeath: "20 - 04 - 1978 tại Mặt trận Phía Tây", grave: "hàng 1 bên trái" }];
+        const thongtin8 = [{ fullName: "Chu Văn Vị", yearOfBirth: "08 - 06 - 1947", enlistmentDate: "1968", rank: "", unit: "", dateOfDeath: "29 - 12 - 1971 tại Mặt trận Quảng Bình", grave: "hàng 1 bên trái" }];
+        const thongtin9 = [{ fullName: "Triệu Văn Thuận", yearOfBirth: "01 - 10 - 1950", enlistmentDate: "02 - 03 - 1968", rank: "", unit: "", dateOfDeath: "23 - 11 - 1970 tại Mặt trận Phía Tây", grave: "hàng 1 bên trái" }];
+        const thongtin10 = [{ fullName: "Đỗ Đức Thanh", yearOfBirth: "1956", enlistmentDate: "10 - 1974", rank: "", unit: "", dateOfDeath: "20 - 02 - 1979 tại Mặt trận Cao Bằng", grave: "hàng 1 bên trái" }];
+        const thongtin11 = [{ fullName: "Phương Văn Tiến", yearOfBirth: "28 - 12 - 1949", enlistmentDate: "04 - 1970", rank: "", unit: "", dateOfDeath: "17 - 04 - 1975 tại Mặt trận Phía Nam", grave: "hàng 1 bên trái" }];
+        const thongtin12 = [{ fullName: "Đỗ Xuân Hữu", yearOfBirth: "1944", enlistmentDate: "02 - 1962", rank: "", unit: "", dateOfDeath: "01 - 1968 tại Mặt trận Lào", grave: "hàng 1 bên trái" }];
+        const thongtin13 = [{ fullName: "Ngô Anh Đạo", yearOfBirth: "06 - 1958", enlistmentDate: "08 - 1978", rank: "", unit: "", dateOfDeath: "24 - 08 - 1979 tại Mặt trận Lào", grave: "hàng 1 bên trái" }];
+        const thongtin14 = [{ fullName: "Trần Đình Trọng", yearOfBirth: "1950", enlistmentDate: "08 - 1969", rank: "", unit: "", dateOfDeath: "23 - 01 - 1971 tại Mặt trận Lào", grave: "Hàng 2 bên trái" }];
         const thongtin15 = [{ name: "Dương Văn Sơn", hometown: "Ninh Thuận", birth: 1949, death: 1971, grave: "Hàng 2 - Lô 5" }];
         const thongtin16 = [{ name: "Lâm Văn Thành", hometown: "Bình Thuận", birth: 1946, death: 1969, grave: "Hàng 2 - Lô 6" }];
         const thongtin17 = [{ name: "Tạ Văn Tuấn", hometown: "Đồng Nai", birth: 1947, death: 1970, grave: "Hàng 2 - Lô 7" }];
@@ -1212,101 +1257,101 @@ const thongtin14 = [{ fullName: "Trần Đình Trọng", yearOfBirth: "1950", en
         const thongtin26 = [{ name: "Tôn Văn Phong", hometown: "Cà Mau", birth: 1946, death: 1969, grave: "Hàng 3 - Lô 1" }];
         const thongtin27 = [{ name: "Hoàng Lê Tuấn Minh", hometown: "Hà Nội", birth: 2007, death: 2026, grave: "Hàng 3 - Lô 6" }];
         const thongtin28 = [
-  { fullName: "Lê Hỷ", yearOfBirth: "1928", enlistmentDate: "4-1947", rank: "", unit: "", dateOfDeath: "3-1953", grave: "" },
-  { fullName: "Trần Như Tính", yearOfBirth: "1936", enlistmentDate: "5-1953", rank: "", unit: "", dateOfDeath: "11-1954", grave: "" },
-  { fullName: "Trần Văn Hồng", yearOfBirth: "1947", enlistmentDate: "11-1966", rank: "", unit: "", dateOfDeath: "12-1967", grave: "" },
-  { fullName: "Nguyễn Đình Liên", yearOfBirth: "1942", enlistmentDate: "11-1966", rank: "", unit: "", dateOfDeath: "2-1968", grave: "" },
-  { fullName: "Đỗ Xuân Hữu", yearOfBirth: "1944", enlistmentDate: "1962", rank: "", unit: "", dateOfDeath: "2-1968", grave: "" },
-  { fullName: "Đào Trọng Quang", yearOfBirth: "1947", enlistmentDate: "4-1966", rank: "", unit: "", dateOfDeath: "8-1968", grave: "" },
-  { fullName: "Tạc Quốc Trấn", yearOfBirth: "1950", enlistmentDate: "7-1967", rank: "", unit: "", dateOfDeath: "8-1968", grave: "" },
-  { fullName: "Trần Đăng Sơ", yearOfBirth: "1947", enlistmentDate: "3-1968", rank: "", unit: "", dateOfDeath: "10-1968", grave: "" },
-  { fullName: "Bùi Đức Tiến", yearOfBirth: "1951", enlistmentDate: "1968", rank: "", unit: "", dateOfDeath: "1968", grave: "" },
-  { fullName: "Lưu Văn Dục", yearOfBirth: "1947", enlistmentDate: "11-1966", rank: "", unit: "", dateOfDeath: "5-1969", grave: "" },
-  { fullName: "Lê Đình Năm", yearOfBirth: "1937", enlistmentDate: "7-1968", rank: "", unit: "", dateOfDeath: "7-1969", grave: "" },
-  { fullName: "Lạc Quốc Kỳ", yearOfBirth: "1949", enlistmentDate: "8-1968", rank: "", unit: "", dateOfDeath: "9-1969", grave: "" },
-  { fullName: "Dương Văn Tính", yearOfBirth: "1952", enlistmentDate: "7-1968", rank: "", unit: "", dateOfDeath: "4-1970", grave: "" },
-  { fullName: "Bế Văn Thành", yearOfBirth: "1940", enlistmentDate: "4-1968", rank: "", unit: "", dateOfDeath: "4-1970", grave: "" },
-  { fullName: "Vương Văn Tân", yearOfBirth: "1941", enlistmentDate: "10-1965", rank: "", unit: "", dateOfDeath: "10-1970", grave: "" },
-  { fullName: "Nịnh Tiến Minh", yearOfBirth: "1940", enlistmentDate: "1-1966", rank: "", unit: "", dateOfDeath: "10-1970", grave: "" },
-  { fullName: "Triệu Văn Thuận", yearOfBirth: "1950", enlistmentDate: "3-1968", rank: "", unit: "", dateOfDeath: "11-1970", grave: "" },
-  { fullName: "Trần Bình Trọng", yearOfBirth: "1947", enlistmentDate: "4-1969", rank: "", unit: "", dateOfDeath: "1-1971", grave: "" },
-  { fullName: "Vương Văn Lợi", yearOfBirth: "1946", enlistmentDate: "7-1968", rank: "", unit: "", dateOfDeath: "6-1971", grave: "" },
-  { fullName: "Đào Trọng Khanh", yearOfBirth: "1946", enlistmentDate: "7-1968", rank: "", unit: "", dateOfDeath: "6-1971", grave: "" },
-  { fullName: "Vương Văn Sáu", yearOfBirth: "1951", enlistmentDate: "6-1968", rank: "", unit: "", dateOfDeath: "6-1971", grave: "" },
-  { fullName: "Nguyễn Hữu Vịnh", yearOfBirth: "1950", enlistmentDate: "4-1968", rank: "", unit: "", dateOfDeath: "6-1971", grave: "" },
-  { fullName: "Chu Văn Vị", yearOfBirth: "1947", enlistmentDate: "4-1968", rank: "", unit: "", dateOfDeath: "12-1971", grave: "" },
-  { fullName: "Trần Đăng Từ", yearOfBirth: "1953", enlistmentDate: "5-1971", rank: "", unit: "", dateOfDeath: "5-1972", grave: "" },
-  { fullName: "La Văn Nghệ", yearOfBirth: "1947", enlistmentDate: "4-1968", rank: "", unit: "", dateOfDeath: "5-1972", grave: "" },
-  { fullName: "Dương Hồng Phan", yearOfBirth: "1947", enlistmentDate: "8-1971", rank: "", unit: "", dateOfDeath: "5-1972", grave: "" },
-  { fullName: "Mai Thanh Sơn", yearOfBirth: "1953", enlistmentDate: "8-1971", rank: "", unit: "", dateOfDeath: "6-1972", grave: "" },
-  { fullName: "Đào Trọng Thái", yearOfBirth: "1948", enlistmentDate: "5-1969", rank: "", unit: "", dateOfDeath: "9-1972", grave: "" },
-  { fullName: "Đinh Văn Thành", yearOfBirth: "1948", enlistmentDate: "4-1970", rank: "", unit: "", dateOfDeath: "10-1972", grave: "" },
-  { fullName: "Đoàn Mạnh Đường", yearOfBirth: "1947", enlistmentDate: "7-1968", rank: "", unit: "", dateOfDeath: "12-1972", grave: "" },
-  { fullName: "Nguyễn Văn Cát", yearOfBirth: "1952", enlistmentDate: "3-1970", rank: "", unit: "", dateOfDeath: "1-1973", grave: "" },
-  { fullName: "La Văn Phú", yearOfBirth: "1951", enlistmentDate: "4-1968", rank: "", unit: "", dateOfDeath: "8-1973", grave: "" },
-  { fullName: "Vũ Mạnh Hà", yearOfBirth: "1953", enlistmentDate: "12-1970", rank: "", unit: "", dateOfDeath: "1-1974", grave: "" },
-  { fullName: "Trần Duy Mậu", yearOfBirth: "1948", enlistmentDate: "6-1968", rank: "", unit: "", dateOfDeath: "2-1974", grave: "" },
-  { fullName: "Đào Duy Hợi", yearOfBirth: "1947", enlistmentDate: "7-1968", rank: "", unit: "", dateOfDeath: "4-1974", grave: "" },
-  { fullName: "Phạm Ngọc Cảnh", yearOfBirth: "1953", enlistmentDate: "5-1972", rank: "", unit: "", dateOfDeath: "9-1974", grave: "" },
-  { fullName: "Hoàng Văn Sâu", yearOfBirth: "1953", enlistmentDate: "12-1971", rank: "", unit: "", dateOfDeath: "10-1974", grave: "" },
-  { fullName: "Trần Văn Dũng", yearOfBirth: "1954", enlistmentDate: "1-1974", rank: "", unit: "", dateOfDeath: "1-1975", grave: "" },
-  { fullName: "Nguyễn Đình Bảng", yearOfBirth: "1936", enlistmentDate: "11-1968", rank: "", unit: "", dateOfDeath: "3-1975", grave: "" },
-  { fullName: "Phương Văn Thế", yearOfBirth: "1949", enlistmentDate: "4-1970", rank: "", unit: "", dateOfDeath: "4-1975", grave: "" },
-  { fullName: "Trần Văn Thế", yearOfBirth: "1960", enlistmentDate: "7-1977", rank: "", unit: "", dateOfDeath: "4-1978", grave: "" },
-  { fullName: "Vương Văn Quang", yearOfBirth: "1960", enlistmentDate: "5-1978", rank: "", unit: "", dateOfDeath: "1-1979", grave: "" },
-  { fullName: "Đỗ Đức Thanh", yearOfBirth: "1956", enlistmentDate: "10-1974", rank: "", unit: "", dateOfDeath: "2-1979", grave: "" },
-  { fullName: "Vũ Tiến Minh", yearOfBirth: "1957", enlistmentDate: "8-1976", rank: "", unit: "", dateOfDeath: "2-1979", grave: "" },
-  { fullName: "Đặng Văn Mai", yearOfBirth: "1960", enlistmentDate: "9-1982", rank: "", unit: "", dateOfDeath: "6-1985", grave: "" },
-  { fullName: "Mai Văn Lâm", yearOfBirth: "1965", enlistmentDate: "11-1984", rank: "", unit: "", dateOfDeath: "9-1985", grave: "" }
-];
+            { fullName: "Lê Hỷ", yearOfBirth: "1928", enlistmentDate: "4-1947", rank: "", unit: "", dateOfDeath: "3-1953", grave: "" },
+            { fullName: "Trần Như Tính", yearOfBirth: "1936", enlistmentDate: "5-1953", rank: "", unit: "", dateOfDeath: "11-1954", grave: "" },
+            { fullName: "Trần Văn Hồng", yearOfBirth: "1947", enlistmentDate: "11-1966", rank: "", unit: "", dateOfDeath: "12-1967", grave: "" },
+            { fullName: "Nguyễn Đình Liên", yearOfBirth: "1942", enlistmentDate: "11-1966", rank: "", unit: "", dateOfDeath: "2-1968", grave: "" },
+            { fullName: "Đỗ Xuân Hữu", yearOfBirth: "1944", enlistmentDate: "1962", rank: "", unit: "", dateOfDeath: "2-1968", grave: "" },
+            { fullName: "Đào Trọng Quang", yearOfBirth: "1947", enlistmentDate: "4-1966", rank: "", unit: "", dateOfDeath: "8-1968", grave: "" },
+            { fullName: "Tạc Quốc Trấn", yearOfBirth: "1950", enlistmentDate: "7-1967", rank: "", unit: "", dateOfDeath: "8-1968", grave: "" },
+            { fullName: "Trần Đăng Sơ", yearOfBirth: "1947", enlistmentDate: "3-1968", rank: "", unit: "", dateOfDeath: "10-1968", grave: "" },
+            { fullName: "Bùi Đức Tiến", yearOfBirth: "1951", enlistmentDate: "1968", rank: "", unit: "", dateOfDeath: "1968", grave: "" },
+            { fullName: "Lưu Văn Dục", yearOfBirth: "1947", enlistmentDate: "11-1966", rank: "", unit: "", dateOfDeath: "5-1969", grave: "" },
+            { fullName: "Lê Đình Năm", yearOfBirth: "1937", enlistmentDate: "7-1968", rank: "", unit: "", dateOfDeath: "7-1969", grave: "" },
+            { fullName: "Lạc Quốc Kỳ", yearOfBirth: "1949", enlistmentDate: "8-1968", rank: "", unit: "", dateOfDeath: "9-1969", grave: "" },
+            { fullName: "Dương Văn Tính", yearOfBirth: "1952", enlistmentDate: "7-1968", rank: "", unit: "", dateOfDeath: "4-1970", grave: "" },
+            { fullName: "Bế Văn Thành", yearOfBirth: "1940", enlistmentDate: "4-1968", rank: "", unit: "", dateOfDeath: "4-1970", grave: "" },
+            { fullName: "Vương Văn Tân", yearOfBirth: "1941", enlistmentDate: "10-1965", rank: "", unit: "", dateOfDeath: "10-1970", grave: "" },
+            { fullName: "Nịnh Tiến Minh", yearOfBirth: "1940", enlistmentDate: "1-1966", rank: "", unit: "", dateOfDeath: "10-1970", grave: "" },
+            { fullName: "Triệu Văn Thuận", yearOfBirth: "1950", enlistmentDate: "3-1968", rank: "", unit: "", dateOfDeath: "11-1970", grave: "" },
+            { fullName: "Trần Bình Trọng", yearOfBirth: "1947", enlistmentDate: "4-1969", rank: "", unit: "", dateOfDeath: "1-1971", grave: "" },
+            { fullName: "Vương Văn Lợi", yearOfBirth: "1946", enlistmentDate: "7-1968", rank: "", unit: "", dateOfDeath: "6-1971", grave: "" },
+            { fullName: "Đào Trọng Khanh", yearOfBirth: "1946", enlistmentDate: "7-1968", rank: "", unit: "", dateOfDeath: "6-1971", grave: "" },
+            { fullName: "Vương Văn Sáu", yearOfBirth: "1951", enlistmentDate: "6-1968", rank: "", unit: "", dateOfDeath: "6-1971", grave: "" },
+            { fullName: "Nguyễn Hữu Vịnh", yearOfBirth: "1950", enlistmentDate: "4-1968", rank: "", unit: "", dateOfDeath: "6-1971", grave: "" },
+            { fullName: "Chu Văn Vị", yearOfBirth: "1947", enlistmentDate: "4-1968", rank: "", unit: "", dateOfDeath: "12-1971", grave: "" },
+            { fullName: "Trần Đăng Từ", yearOfBirth: "1953", enlistmentDate: "5-1971", rank: "", unit: "", dateOfDeath: "5-1972", grave: "" },
+            { fullName: "La Văn Nghệ", yearOfBirth: "1947", enlistmentDate: "4-1968", rank: "", unit: "", dateOfDeath: "5-1972", grave: "" },
+            { fullName: "Dương Hồng Phan", yearOfBirth: "1947", enlistmentDate: "8-1971", rank: "", unit: "", dateOfDeath: "5-1972", grave: "" },
+            { fullName: "Mai Thanh Sơn", yearOfBirth: "1953", enlistmentDate: "8-1971", rank: "", unit: "", dateOfDeath: "6-1972", grave: "" },
+            { fullName: "Đào Trọng Thái", yearOfBirth: "1948", enlistmentDate: "5-1969", rank: "", unit: "", dateOfDeath: "9-1972", grave: "" },
+            { fullName: "Đinh Văn Thành", yearOfBirth: "1948", enlistmentDate: "4-1970", rank: "", unit: "", dateOfDeath: "10-1972", grave: "" },
+            { fullName: "Đoàn Mạnh Đường", yearOfBirth: "1947", enlistmentDate: "7-1968", rank: "", unit: "", dateOfDeath: "12-1972", grave: "" },
+            { fullName: "Nguyễn Văn Cát", yearOfBirth: "1952", enlistmentDate: "3-1970", rank: "", unit: "", dateOfDeath: "1-1973", grave: "" },
+            { fullName: "La Văn Phú", yearOfBirth: "1951", enlistmentDate: "4-1968", rank: "", unit: "", dateOfDeath: "8-1973", grave: "" },
+            { fullName: "Vũ Mạnh Hà", yearOfBirth: "1953", enlistmentDate: "12-1970", rank: "", unit: "", dateOfDeath: "1-1974", grave: "" },
+            { fullName: "Trần Duy Mậu", yearOfBirth: "1948", enlistmentDate: "6-1968", rank: "", unit: "", dateOfDeath: "2-1974", grave: "" },
+            { fullName: "Đào Duy Hợi", yearOfBirth: "1947", enlistmentDate: "7-1968", rank: "", unit: "", dateOfDeath: "4-1974", grave: "" },
+            { fullName: "Phạm Ngọc Cảnh", yearOfBirth: "1953", enlistmentDate: "5-1972", rank: "", unit: "", dateOfDeath: "9-1974", grave: "" },
+            { fullName: "Hoàng Văn Sâu", yearOfBirth: "1953", enlistmentDate: "12-1971", rank: "", unit: "", dateOfDeath: "10-1974", grave: "" },
+            { fullName: "Trần Văn Dũng", yearOfBirth: "1954", enlistmentDate: "1-1974", rank: "", unit: "", dateOfDeath: "1-1975", grave: "" },
+            { fullName: "Nguyễn Đình Bảng", yearOfBirth: "1936", enlistmentDate: "11-1968", rank: "", unit: "", dateOfDeath: "3-1975", grave: "" },
+            { fullName: "Phương Văn Thế", yearOfBirth: "1949", enlistmentDate: "4-1970", rank: "", unit: "", dateOfDeath: "4-1975", grave: "" },
+            { fullName: "Trần Văn Thế", yearOfBirth: "1960", enlistmentDate: "7-1977", rank: "", unit: "", dateOfDeath: "4-1978", grave: "" },
+            { fullName: "Vương Văn Quang", yearOfBirth: "1960", enlistmentDate: "5-1978", rank: "", unit: "", dateOfDeath: "1-1979", grave: "" },
+            { fullName: "Đỗ Đức Thanh", yearOfBirth: "1956", enlistmentDate: "10-1974", rank: "", unit: "", dateOfDeath: "2-1979", grave: "" },
+            { fullName: "Vũ Tiến Minh", yearOfBirth: "1957", enlistmentDate: "8-1976", rank: "", unit: "", dateOfDeath: "2-1979", grave: "" },
+            { fullName: "Đặng Văn Mai", yearOfBirth: "1960", enlistmentDate: "9-1982", rank: "", unit: "", dateOfDeath: "6-1985", grave: "" },
+            { fullName: "Mai Văn Lâm", yearOfBirth: "1965", enlistmentDate: "11-1984", rank: "", unit: "", dateOfDeath: "9-1985", grave: "" }
+        ];
 
-const thongtin29 = [
-  { fullName: "Hà Văn Thứ", yearOfBirth: "", enlistmentDate: "", rank: "", unit: "", dateOfDeath: "1945", grave: "" },
-  { fullName: "Nguyễn Văn Chương", yearOfBirth: "", enlistmentDate: "", rank: "", unit: "", dateOfDeath: "1945", grave: "" },
-  { fullName: "Trần Duy Đạt", yearOfBirth: "1921", enlistmentDate: "9-1945", rank: "", unit: "", dateOfDeath: "10-1947", grave: "" },
-  { fullName: "Cao Xuân Ước", yearOfBirth: "1937", enlistmentDate: "10-1951", rank: "", unit: "", dateOfDeath: "1953", grave: "" },
-  { fullName: "Đinh Văn Quán", yearOfBirth: "1933", enlistmentDate: "2-1951", rank: "", unit: "", dateOfDeath: "4-1954", grave: "" },
-  { fullName: "Trần Xuân Định", yearOfBirth: "1947", enlistmentDate: "1-1966", rank: "", unit: "", dateOfDeath: "6-1967", grave: "" },
-  { fullName: "Nông Quốc Chí", yearOfBirth: "1944", enlistmentDate: "1965", rank: "", unit: "", dateOfDeath: "1967", grave: "" },
-  { fullName: "Chu Văn Duyên", yearOfBirth: "1950", enlistmentDate: "1966", rank: "", unit: "", dateOfDeath: "1-1968", grave: "" },
-  { fullName: "Trần Cao Nguyên", yearOfBirth: "1942", enlistmentDate: "2-1961", rank: "", unit: "", dateOfDeath: "8-1968", grave: "" },
-  { fullName: "Trần Như Tính", yearOfBirth: "1943", enlistmentDate: "6-1968", rank: "", unit: "", dateOfDeath: "1-1970", grave: "" },
-  { fullName: "Vũ Duy Trọng", yearOfBirth: "1948", enlistmentDate: "6-1968", rank: "", unit: "", dateOfDeath: "5-1970", grave: "" },
-  { fullName: "Dương Văn Tiến", yearOfBirth: "1946", enlistmentDate: "1968", rank: "", unit: "", dateOfDeath: "1970", grave: "" },
-  { fullName: "Vũ Văn Nhỡ", yearOfBirth: "1938", enlistmentDate: "12-1966", rank: "", unit: "", dateOfDeath: "3-1971", grave: "" },
-  { fullName: "Trần Văn Chít", yearOfBirth: "1948", enlistmentDate: "1968", rank: "", unit: "", dateOfDeath: "4-1971", grave: "" },
-  { fullName: "Nguyễn Văn Tân", yearOfBirth: "1950", enlistmentDate: "8-1969", rank: "", unit: "", dateOfDeath: "6-1971", grave: "" },
-  { fullName: "Nguyễn Ngọc Đãi", yearOfBirth: "1932", enlistmentDate: "11-1966", rank: "", unit: "", dateOfDeath: "7-1971", grave: "" },
-  { fullName: "Lương Văn Hành", yearOfBirth: "1946", enlistmentDate: "6-1968", rank: "", unit: "", dateOfDeath: "9-1971", grave: "" },
-  { fullName: "Hoàng Văn Tương", yearOfBirth: "", enlistmentDate: "1963", rank: "", unit: "", dateOfDeath: "1971", grave: "" },
-  { fullName: "Đào Văn Phong", yearOfBirth: "1952", enlistmentDate: "12-1970", rank: "", unit: "", dateOfDeath: "3-1972", grave: "" },
-  { fullName: "Nguyễn Mạnh Hồng", yearOfBirth: "1950", enlistmentDate: "1968", rank: "", unit: "", dateOfDeath: "5-1972", grave: "" },
-  { fullName: "Mai Quốc Khánh", yearOfBirth: "1952", enlistmentDate: "2-1970", rank: "", unit: "", dateOfDeath: "11-1972", grave: "" },
-  { fullName: "Nguyễn Văn San", yearOfBirth: "1953", enlistmentDate: "5-1972", rank: "", unit: "", dateOfDeath: "11-1972", grave: "" },
-  { fullName: "Lưu Minh Quý", yearOfBirth: "1952", enlistmentDate: "9-1970", rank: "", unit: "", dateOfDeath: "12-1972", grave: "" },
-  { fullName: "Nguyễn Văn Huân", yearOfBirth: "1948", enlistmentDate: "1967", rank: "", unit: "", dateOfDeath: "1973", grave: "" },
-  { fullName: "Đào Duy Hợi", yearOfBirth: "1952", enlistmentDate: "7-1968", rank: "", unit: "", dateOfDeath: "4-1974", grave: "" },
-  { fullName: "Đặng Xuân Hương", yearOfBirth: "1944", enlistmentDate: "7-1967", rank: "", unit: "", dateOfDeath: "11-1974", grave: "" },
-  { fullName: "Tạc Văn Hải", yearOfBirth: "1953", enlistmentDate: "5-1972", rank: "", unit: "", dateOfDeath: "12-1974", grave: "" },
-  { fullName: "Trần Văn Trưởng", yearOfBirth: "1956", enlistmentDate: "6-1974", rank: "", unit: "", dateOfDeath: "4-1975", grave: "" },
-  { fullName: "Nguyễn Văn Tân", yearOfBirth: "1946", enlistmentDate: "8-1968", rank: "", unit: "", dateOfDeath: "1976", grave: "" },
-  { fullName: "Nguyễn Ngọc Vũ", yearOfBirth: "1954", enlistmentDate: "7-1967", rank: "", unit: "", dateOfDeath: "6-1978", grave: "" },
-  { fullName: "Đinh Tiến Ơhương", yearOfBirth: "1951", enlistmentDate: "1968", rank: "", unit: "", dateOfDeath: "8-1978", grave: "" },
-  { fullName: "Hà Minh Nghĩa", yearOfBirth: "1960", enlistmentDate: "4-1978", rank: "", unit: "", dateOfDeath: "2-1979", grave: "" },
-  { fullName: "Đỗ Xuân Ước", yearOfBirth: "1961", enlistmentDate: "8-1978", rank: "", unit: "", dateOfDeath: "2-1979", grave: "" },
-  { fullName: "Trần Văn Tình", yearOfBirth: "1958", enlistmentDate: "8-1978", rank: "", unit: "", dateOfDeath: "2-1979", grave: "" },
-  { fullName: "Ngô Anh Đạo", yearOfBirth: "1958", enlistmentDate: "8-1978", rank: "", unit: "", dateOfDeath: "8-1979", grave: "" },
-  { fullName: "Đào Xuân Liệu", yearOfBirth: "1960", enlistmentDate: "8-1978", rank: "", unit: "", dateOfDeath: "10-1981", grave: "" },
-  { fullName: "Nguyễn Văn Hồng", yearOfBirth: "1962", enlistmentDate: "3-1978", rank: "", unit: "", dateOfDeath: "5-1985", grave: "" },
-  { fullName: "Đặng Xuân Thanh", yearOfBirth: "1960", enlistmentDate: "11-1978", rank: "", unit: "", dateOfDeath: "8-1985", grave: "" },
-  { fullName: "Hoàng Bích Sơn", yearOfBirth: "1961", enlistmentDate: "1982", rank: "", unit: "", dateOfDeath: "9-1985", grave: "" },
-  { fullName: "Nguyễn Quốc Tầm", yearOfBirth: "1965", enlistmentDate: "4-1981", rank: "", unit: "", dateOfDeath: "10-1985", grave: "" },
-  { fullName: "Nguyễn Minh Khuê", yearOfBirth: "1959", enlistmentDate: "2-1985", rank: "", unit: "", dateOfDeath: "10-1985", grave: "" },
-  { fullName: "Trần Văn Đãi", yearOfBirth: "", enlistmentDate: "4-1981", rank: "", unit: "", dateOfDeath: "", grave: "" },
-  { fullName: "Hoàng Văn Sừ", yearOfBirth: "", enlistmentDate: "", rank: "", unit: "", dateOfDeath: "", grave: "" },
-  { fullName: "Trịnh Văn Bình", yearOfBirth: "1940", enlistmentDate: "", rank: "", unit: "", dateOfDeath: "", grave: "" },
-  { fullName: "Bùi Văn Lưu", yearOfBirth: "1946", enlistmentDate: "", rank: "", unit: "", dateOfDeath: "", grave: "" }
-];
+        const thongtin29 = [
+            { fullName: "Hà Văn Thứ", yearOfBirth: "", enlistmentDate: "", rank: "", unit: "", dateOfDeath: "1945", grave: "" },
+            { fullName: "Nguyễn Văn Chương", yearOfBirth: "", enlistmentDate: "", rank: "", unit: "", dateOfDeath: "1945", grave: "" },
+            { fullName: "Trần Duy Đạt", yearOfBirth: "1921", enlistmentDate: "9-1945", rank: "", unit: "", dateOfDeath: "10-1947", grave: "" },
+            { fullName: "Cao Xuân Ước", yearOfBirth: "1937", enlistmentDate: "10-1951", rank: "", unit: "", dateOfDeath: "1953", grave: "" },
+            { fullName: "Đinh Văn Quán", yearOfBirth: "1933", enlistmentDate: "2-1951", rank: "", unit: "", dateOfDeath: "4-1954", grave: "" },
+            { fullName: "Trần Xuân Định", yearOfBirth: "1947", enlistmentDate: "1-1966", rank: "", unit: "", dateOfDeath: "6-1967", grave: "" },
+            { fullName: "Nông Quốc Chí", yearOfBirth: "1944", enlistmentDate: "1965", rank: "", unit: "", dateOfDeath: "1967", grave: "" },
+            { fullName: "Chu Văn Duyên", yearOfBirth: "1950", enlistmentDate: "1966", rank: "", unit: "", dateOfDeath: "1-1968", grave: "" },
+            { fullName: "Trần Cao Nguyên", yearOfBirth: "1942", enlistmentDate: "2-1961", rank: "", unit: "", dateOfDeath: "8-1968", grave: "" },
+            { fullName: "Trần Như Tính", yearOfBirth: "1943", enlistmentDate: "6-1968", rank: "", unit: "", dateOfDeath: "1-1970", grave: "" },
+            { fullName: "Vũ Duy Trọng", yearOfBirth: "1948", enlistmentDate: "6-1968", rank: "", unit: "", dateOfDeath: "5-1970", grave: "" },
+            { fullName: "Dương Văn Tiến", yearOfBirth: "1946", enlistmentDate: "1968", rank: "", unit: "", dateOfDeath: "1970", grave: "" },
+            { fullName: "Vũ Văn Nhỡ", yearOfBirth: "1938", enlistmentDate: "12-1966", rank: "", unit: "", dateOfDeath: "3-1971", grave: "" },
+            { fullName: "Trần Văn Chít", yearOfBirth: "1948", enlistmentDate: "1968", rank: "", unit: "", dateOfDeath: "4-1971", grave: "" },
+            { fullName: "Nguyễn Văn Tân", yearOfBirth: "1950", enlistmentDate: "8-1969", rank: "", unit: "", dateOfDeath: "6-1971", grave: "" },
+            { fullName: "Nguyễn Ngọc Đãi", yearOfBirth: "1932", enlistmentDate: "11-1966", rank: "", unit: "", dateOfDeath: "7-1971", grave: "" },
+            { fullName: "Lương Văn Hành", yearOfBirth: "1946", enlistmentDate: "6-1968", rank: "", unit: "", dateOfDeath: "9-1971", grave: "" },
+            { fullName: "Hoàng Văn Tương", yearOfBirth: "", enlistmentDate: "1963", rank: "", unit: "", dateOfDeath: "1971", grave: "" },
+            { fullName: "Đào Văn Phong", yearOfBirth: "1952", enlistmentDate: "12-1970", rank: "", unit: "", dateOfDeath: "3-1972", grave: "" },
+            { fullName: "Nguyễn Mạnh Hồng", yearOfBirth: "1950", enlistmentDate: "1968", rank: "", unit: "", dateOfDeath: "5-1972", grave: "" },
+            { fullName: "Mai Quốc Khánh", yearOfBirth: "1952", enlistmentDate: "2-1970", rank: "", unit: "", dateOfDeath: "11-1972", grave: "" },
+            { fullName: "Nguyễn Văn San", yearOfBirth: "1953", enlistmentDate: "5-1972", rank: "", unit: "", dateOfDeath: "11-1972", grave: "" },
+            { fullName: "Lưu Minh Quý", yearOfBirth: "1952", enlistmentDate: "9-1970", rank: "", unit: "", dateOfDeath: "12-1972", grave: "" },
+            { fullName: "Nguyễn Văn Huân", yearOfBirth: "1948", enlistmentDate: "1967", rank: "", unit: "", dateOfDeath: "1973", grave: "" },
+            { fullName: "Đào Duy Hợi", yearOfBirth: "1952", enlistmentDate: "7-1968", rank: "", unit: "", dateOfDeath: "4-1974", grave: "" },
+            { fullName: "Đặng Xuân Hương", yearOfBirth: "1944", enlistmentDate: "7-1967", rank: "", unit: "", dateOfDeath: "11-1974", grave: "" },
+            { fullName: "Tạc Văn Hải", yearOfBirth: "1953", enlistmentDate: "5-1972", rank: "", unit: "", dateOfDeath: "12-1974", grave: "" },
+            { fullName: "Trần Văn Trưởng", yearOfBirth: "1956", enlistmentDate: "6-1974", rank: "", unit: "", dateOfDeath: "4-1975", grave: "" },
+            { fullName: "Nguyễn Văn Tân", yearOfBirth: "1946", enlistmentDate: "8-1968", rank: "", unit: "", dateOfDeath: "1976", grave: "" },
+            { fullName: "Nguyễn Ngọc Vũ", yearOfBirth: "1954", enlistmentDate: "7-1967", rank: "", unit: "", dateOfDeath: "6-1978", grave: "" },
+            { fullName: "Đinh Tiến Ơhương", yearOfBirth: "1951", enlistmentDate: "1968", rank: "", unit: "", dateOfDeath: "8-1978", grave: "" },
+            { fullName: "Hà Minh Nghĩa", yearOfBirth: "1960", enlistmentDate: "4-1978", rank: "", unit: "", dateOfDeath: "2-1979", grave: "" },
+            { fullName: "Đỗ Xuân Ước", yearOfBirth: "1961", enlistmentDate: "8-1978", rank: "", unit: "", dateOfDeath: "2-1979", grave: "" },
+            { fullName: "Trần Văn Tình", yearOfBirth: "1958", enlistmentDate: "8-1978", rank: "", unit: "", dateOfDeath: "2-1979", grave: "" },
+            { fullName: "Ngô Anh Đạo", yearOfBirth: "1958", enlistmentDate: "8-1978", rank: "", unit: "", dateOfDeath: "8-1979", grave: "" },
+            { fullName: "Đào Xuân Liệu", yearOfBirth: "1960", enlistmentDate: "8-1978", rank: "", unit: "", dateOfDeath: "10-1981", grave: "" },
+            { fullName: "Nguyễn Văn Hồng", yearOfBirth: "1962", enlistmentDate: "3-1978", rank: "", unit: "", dateOfDeath: "5-1985", grave: "" },
+            { fullName: "Đặng Xuân Thanh", yearOfBirth: "1960", enlistmentDate: "11-1978", rank: "", unit: "", dateOfDeath: "8-1985", grave: "" },
+            { fullName: "Hoàng Bích Sơn", yearOfBirth: "1961", enlistmentDate: "1982", rank: "", unit: "", dateOfDeath: "9-1985", grave: "" },
+            { fullName: "Nguyễn Quốc Tầm", yearOfBirth: "1965", enlistmentDate: "4-1981", rank: "", unit: "", dateOfDeath: "10-1985", grave: "" },
+            { fullName: "Nguyễn Minh Khuê", yearOfBirth: "1959", enlistmentDate: "2-1985", rank: "", unit: "", dateOfDeath: "10-1985", grave: "" },
+            { fullName: "Trần Văn Đãi", yearOfBirth: "", enlistmentDate: "4-1981", rank: "", unit: "", dateOfDeath: "", grave: "" },
+            { fullName: "Hoàng Văn Sừ", yearOfBirth: "", enlistmentDate: "", rank: "", unit: "", dateOfDeath: "", grave: "" },
+            { fullName: "Trịnh Văn Bình", yearOfBirth: "1940", enlistmentDate: "", rank: "", unit: "", dateOfDeath: "", grave: "" },
+            { fullName: "Bùi Văn Lưu", yearOfBirth: "1946", enlistmentDate: "", rank: "", unit: "", dateOfDeath: "", grave: "" }
+        ];
         const data = {
             mo1: thongtin1,
             mo2: thongtin2,
