@@ -1233,6 +1233,9 @@
 </head>
 
 <body>
+    <audio id="bgMusic" autoplay loop>
+        <source src="nhac.mp3" type="audio/mpeg">
+    </audio>
     <header>
 
         <div class="top-header">
@@ -1852,7 +1855,17 @@
                 lotusVideo.currentTime = 0;
                 lotusVideo.play();
             }
-        }); 
+        });
+        const music = document.getElementById("bgMusic");
+
+        function playMusic() {
+            music.play().catch(() => { });
+            document.removeEventListener("click", playMusic);
+            document.removeEventListener("touchstart", playMusic);
+        }
+
+        document.addEventListener("click", playMusic);
+        document.addEventListener("touchstart", playMusic);
     </script>
 
 </body>
