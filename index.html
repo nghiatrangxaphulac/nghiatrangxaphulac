@@ -929,6 +929,7 @@ figcaption::after{
             }
 
             .bang {
+                /* Chiều rộng thật của bảng; màn hình nhỏ sẽ cuộn ngang */
                 min-width: 520px;
                 width: 520px;
                 font-size: 13px;
@@ -993,6 +994,8 @@ figcaption::after{
                 max-width: 28%;
                 object-fit: contain;
             }
+
+            /* !important vì tiêu đề hiện đang có style trực tiếp trong HTML */
             .banner h1 {
                 margin: 8px 0 !important;
                 letter-spacing: 1px;
@@ -1079,7 +1082,7 @@ figcaption::after{
             .about-img img {
                 max-height: 500px;
                 object-fit: cover;
-                width:40%;
+                width:100%;
                 height:auto;
             }
             .about-img {
@@ -1142,17 +1145,23 @@ figcaption::after{
                 right: 12px;
                 bottom: 12px;
             }
+
+            /* Vuốt ngang mượt hơn cho thumbnails và bảng */
             .subimage,
             .table-box {
                 -webkit-overflow-scrolling: touch;
                 touch-action: pan-x;
             }
+
+            /* Ảnh, video, SVG không làm tràn ngang màn hình */
             img,
             video,
             svg,
             iframe {
                 max-width: 100%;
             }
+
+            /* Nút và link dễ bấm hơn trên điện thoại */
             button,
             a {
                 -webkit-tap-highlight-color: transparent;
